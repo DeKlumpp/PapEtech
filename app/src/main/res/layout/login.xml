@@ -1,0 +1,72 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="@color/colorWhite">
+
+    <ImageView
+        android:id="@+id/imagem"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/evagas2" />
+
+
+    <EditText
+        android:textStyle="bold"
+        android:id="@+id/loginText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/login"
+        android:inputType="text"
+        android:textSize="20sp"/>
+
+
+    <EditText
+        android:textStyle="bold"
+        android:id="@+id/senhaText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/senha"
+        android:inputType="text"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/entrar"
+        android:textStyle="bold"
+        android:textSize="22dp"/>
+
+    <TextView
+        android:id="@+id/cadastroText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nao possui cadastro?"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Cadastrar"
+        android:textStyle="bold"
+        android:textSize="22dp" />
+
+    <ImageView
+        android:id="@+id/imagem2"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_marginTop="40dp"
+        android:layout_weight="0.24"
+        android:src="@drawable/exemplo" />
+
+</LinearLayout>
