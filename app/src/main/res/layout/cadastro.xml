@@ -18,7 +18,7 @@
 
     <EditText
         android:id="@+id/nomeText"
-        android:layout_width="match_parent"
+        android:layout_width="385dp"
         android:layout_height="wrap_content"
         android:hint="@string/nome"
         android:inputType="text"
@@ -27,7 +27,7 @@
 
     <EditText
         android:id="@+id/sobrenomeText"
-        android:layout_width="match_parent"
+        android:layout_width="385dp"
         android:layout_height="wrap_content"
         android:hint="@string/sobrenome"
         android:inputType="text"
@@ -35,27 +35,27 @@
 
     <EditText
         android:id="@+id/emailText"
-        android:layout_width="match_parent"
+        android:layout_width="385dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="@string/email"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:textSize="25sp" />
 
     <EditText
         android:id="@+id/senhaText"
-        android:layout_width="match_parent"
+        android:layout_width="385dp"
         android:layout_height="wrap_content"
         android:hint="@string/senha"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:textSize="25sp" />
 
     <EditText
         android:id="@+id/confirmarSenhaText"
-        android:layout_width="match_parent"
+        android:layout_width="385dp"
         android:layout_height="wrap_content"
         android:hint="@string/confirmarSenha"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:textSize="25sp" />
 
     <Button

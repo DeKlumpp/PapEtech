@@ -9,4 +9,8 @@
     <string name="confirmarSenha">Confirme a senha</string>
     <string name="cadastrar">Cadastrar</string>
     <string name="cadastro">Cadastro</string>
+    <string name="nomeVaga">Nome da Vaga</string>
+    <string name="localVaga">Localidade</string>
+    <string name="descricaoVaga">Descricao da Vaga</string>
+    <string name="cadastroVaga">Cadastro de Vaga</string>
 </resources>

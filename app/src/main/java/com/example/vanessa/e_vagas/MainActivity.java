@@ -49,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
         //cria o objeti lista
       /* lvOpcoes = (ListView) findViewById(R.id.list);
 
