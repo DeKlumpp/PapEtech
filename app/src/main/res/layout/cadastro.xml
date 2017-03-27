@@ -65,7 +65,8 @@
         android:text="@string/cadastrar"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:id="@+id/button"/>
+        android:id="@+id/button"
+        android:onClick="mensagenExibir"/>
 
     <ImageView
         android:id="@+id/imagem"
