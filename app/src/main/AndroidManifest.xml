@@ -18,6 +18,10 @@
             android:name=".CadastroVagaActivity"
             android:label="Cadastro">
         </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="Login">
+        </activity>
     </application>
 
 </manifest>

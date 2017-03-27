@@ -5,16 +5,12 @@
     android:background="@android:color/white"
     android:weightSum="1">
 
-    <TextView
-        android:id="@+id/cadastroText"
+    <ImageView
+        android:id="@+id/imagem"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/cadastro"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"/>
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/evagas2" />
 
     <EditText
         android:id="@+id/nomeText"
@@ -23,7 +19,7 @@
         android:hint="@string/nome"
         android:inputType="text"
         android:textSize="25sp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="20dp"/>
 
     <EditText
         android:id="@+id/sobrenomeText"
@@ -67,14 +63,5 @@
         android:textStyle="bold"
         android:id="@+id/button"
         android:onClick="mensagenExibir"/>
-
-    <ImageView
-        android:id="@+id/imagem"
-        android:layout_width="wrap_content"
-        android:layout_height="52dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/exemplo"
-        android:layout_weight="0.54" />
-
 
 </LinearLayout>

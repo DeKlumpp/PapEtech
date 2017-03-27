@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
+
+    public static TextView textViewObj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -13,9 +16,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login);
     }
 
-    public void startCadastroActivity(View view){
-        Intent cadastroActivity = new Intent(this, CadastroActivity.class);
-        startActivity(cadastroActivity);
+    public void abrir(View v){
+        startActivity(new Intent(this, CadastroActivity.class));
     }
 }
 
