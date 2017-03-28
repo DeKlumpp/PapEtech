@@ -1,20 +1,13 @@
 package com.example.vanessa.e_vagas;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -45,9 +38,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String itemSelecionado = itens[position];
-            }
-        });
+                detalhes(view);
+                }
+        });}
 
+    public void detalhes(View v){startActivity(new Intent(this, LoginActivity.class));
 
         //cria o objeti lista
       /* lvOpcoes = (ListView) findViewById(R.id.list);

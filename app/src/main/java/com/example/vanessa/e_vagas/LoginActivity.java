@@ -19,6 +19,9 @@ public class LoginActivity extends AppCompatActivity {
     public void abrir(View v){
         startActivity(new Intent(this, CadastroActivity.class));
     }
+    public void abrirMain(View v){
+        startActivity(new Intent(this, MainActivity.class));
+    }
 }
 
 
