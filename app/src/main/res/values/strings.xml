@@ -14,4 +14,8 @@
     <string name="descricaoVaga">Descricao da Vaga</string>
     <string name="cadastroVaga">Cadastro de Vaga</string>
     <string name="chamaCadastro">Nao possui cadastro? <a href="com.example.vanessa.e_vagas.CadastroActivity"></a></string>
+    <string name="enviarCurriculo">Enviar Curriculo</string>
+    <string name="voltar">voltar</string>
+    <string name="dadosCadastrais">Dados Cadastrais</string>
+    <string name="sair">Sair</string>
 </resources>

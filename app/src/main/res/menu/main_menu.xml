@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/teste1"
+        android:icon="@drawable/exemplo"
+        android:title="@string/dadosCadastrais"/>
+
+    <item android:id="@+id/teste2"
+        android:icon="@drawable/blue_btnsearch2"
+        android:title="@string/sair"
+        />
+</menu>

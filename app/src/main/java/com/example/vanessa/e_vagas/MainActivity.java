@@ -3,6 +3,9 @@ package com.example.vanessa.e_vagas;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -42,7 +45,35 @@ public class MainActivity extends AppCompatActivity {
                 }
         });}
 
-    public void detalhes(View v){startActivity(new Intent(this, LoginActivity.class));
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.teste1:
+                startActivity(new Intent(this, CadastroActivity.class));
+                return true;
+            case R.id.teste2:
+                //startActivity(new Intent(this, CadastroActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        if(getIntent().getBooleanExtra("SAIR", false)){
+            finish();
+        }
+        super.onResume();
+    }
+    public void detalhes(View v){startActivity(new Intent(this, DescVagaActivity.class));
 
         //cria o objeti lista
       /* lvOpcoes = (ListView) findViewById(R.id.list);

@@ -62,6 +62,7 @@
         android:textSize="22sp"
         android:textStyle="bold"
         android:id="@+id/button"
-        android:onClick="mensagenExibir"/>
+        android:onClick="mensagenExibir"
+        android:background="@color/colorAzulClaro"/>
 
 </LinearLayout>
