@@ -14,7 +14,24 @@ import android.widget.ListView;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    List<String> opcoes;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        ListView lista = (ListView) findViewById(R.id.lista);
+        String[] itens = getResources().getStringArray(R.array.listaVagas); //vetor de strings
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, itens); //Adiciona o Arraydentro da lista
+        lista.setAdapter(adapter); //Adapta a lista
+        adapter.notifyDataSetChanged(); //dá um dataSet
+    }
+}
+
+
+
+    /*    List<String> opcoes;
     ArrayAdapter<String> adaptador;
     ListView lvOpcoes;
 
@@ -45,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         });}
 
-
+/*
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
@@ -66,14 +83,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
+   /* @Override
     protected void onResume() {
         if(getIntent().getBooleanExtra("SAIR", false)){
             finish();
         }
         super.onResume();
     }
-    public void detalhes(View v){startActivity(new Intent(this, DescVagaActivity.class));
+    public void detalhes(View v){startActivity(new Intent(this, DescVagaActivity.class));*/
 
         //cria o objeti lista
       /* lvOpcoes = (ListView) findViewById(R.id.list);
@@ -141,5 +158,3 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }*/
-    }
-}
