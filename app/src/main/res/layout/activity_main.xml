@@ -13,32 +13,37 @@
         android:src="@drawable/evagas2" />
 
 
-    <EditText
-        android:id="@+id/pesquisa"
-        android:layout_marginLeft="10dp"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:background="@color/colorGrey"
-        android:textColor="@color/colorBlack"
-        android:scrollHorizontally="true"
-        android:textSize="40sp"
-        android:inputType="text"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="0.73"
-        android:onClick="anterior"
-        android:src="@drawable/blue_btnsearch" />
+        <EditText
+            android:id="@+id/pesquisa"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorWhite"
+            android:inputType="text"
+            android:scrollHorizontally="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorBlack"
+            android:textSize="40sp" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="86dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="6dp"
+            android:onClick="anterior"
+            android:src="@drawable/blue_btnsearch" />
+
+    </LinearLayout>
 
     <!--ListView para leitura das vagas no banco de  dados-->
     <ListView
         android:id="@+id/lista"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="wrap_content"
+        android:layout_height="441dp">
     </ListView>
-
 </LinearLayout>
