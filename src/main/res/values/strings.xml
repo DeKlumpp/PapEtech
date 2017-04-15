@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">E-Vagas</string>
+    <string name="login">Login</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="nome">Nome</string>
+    <string name="sobrenome">Sobrenome</string>
+    <string name="email">E-mail</string>
+    <string name="confirmarSenha">Confirme a senha</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="cadastro">Cadastro</string>
+    <string name="nomeVaga">Nome da Vaga</string>
+    <string name="localVaga">Localidade</string>
+    <string name="descricaoVaga">Descricao da Vaga</string>
+    <string name="cadastroVaga">Cadastro de Vaga</string>
+    <string name="chamaCadastro">Nao possui cadastro? <a href="com.example.vanessa.e_vagas.CadastroActivity"></a></string>
+    <string name="enviarCurriculo">Enviar Curriculo</string>
+    <string name="voltar">voltar</string>
+    <string name="dadosCadastrais">Dados Cadastrais</string>
+    <string name="sair">Sair</string>
+    <string name="cadastrarvaga">Cadastrar vaga</string>
+</resources>
