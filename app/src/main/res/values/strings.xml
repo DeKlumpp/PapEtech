@@ -18,12 +18,5 @@
     <string name="voltar">voltar</string>
     <string name="dadosCadastrais">Dados Cadastrais</string>
     <string name="sair">Sair</string>
-    <array name="listaVagas">
-        <item>Help Desk</item>
-        <item>Coordenador de Ti</item>
-        <item>Analista de Sistmas</item>
-        <item>Desenvolvedor</item>
-        <item>Analista de projetos</item>
-        <item>Analista Desenvolvedor</item>
-    </array>
+    <string name="cadastrarvaga">Cadastrar vaga</string>
 </resources>

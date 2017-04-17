@@ -16,7 +16,7 @@
         </activity>
         <activity
             android:name=".CadastroVagaActivity"
-            android:label="Cadastro">
+            android:label="CadastroVaga">
         </activity>
         <activity
             android:name=".CadastroActivity"
@@ -25,11 +25,15 @@
         <activity
         android:name=".MainActivity"
         android:label="Main">
-    </activity>
+        </activity>
         <activity
             android:name=".DescVagaActivity"
             android:label="Desc">
         </activity>
+        <!--<activity-->
+            <!--android:name=".LoginActivity"-->
+            <!--android:label="Login">-->
+        <!--</activity>-->
     </application>
 
 </manifest>

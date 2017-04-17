@@ -1,9 +1,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     android:orientation="vertical"
-    android:weightSum="1"
-    android:background="@color/colorWhite">
+    android:weightSum="1">
 
     <ImageView
         android:id="@+id/imagem"
@@ -14,54 +14,53 @@
 
 
     <EditText
-        android:textStyle="bold"
         android:id="@+id/loginText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/login"
         android:inputType="text"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 
     <EditText
-        android:textStyle="bold"
         android:id="@+id/senhaText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/senha"
         android:inputType="textPassword"
-        android:textSize="20sp"/>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
-        android:text="@string/entrar"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textSize="22dp"
-        android:onClick="abrirMain"
-        android:background="@color/colorAzulClaro" />
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/cadastroText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/chamaCadastro"
         android:layout_marginTop="10dp"
         android:gravity="center"
+        android:onClick="abrir"
+        android:text="@string/chamaCadastro"
         android:textSize="15dp"
-        android:textStyle="bold"
-        android:onClick="abrir"/>
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imagem2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="250dp"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.44"
         android:src="@drawable/exemplo" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAzulClaro"
+        android:onClick="abrirMain"
+        android:text="@string/entrar"
+        android:textAlignment="center"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:translationY="@android:dimen/notification_large_icon_height"/>
 </LinearLayout>
