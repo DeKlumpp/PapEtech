@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
@@ -12,48 +12,40 @@
         android:layout_marginTop="20dp"
         android:src="@drawable/evagas2" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal">
 
         <EditText
             android:id="@+id/nomeVaga"
-            android:layout_width="385dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:hint="@string/nomeVaga"
             android:inputType="text"
-            android:textSize="25sp" />
-    </LinearLayout>
+            android:textSize="25sp"
+            android:layout_below="@id/imagem"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal">
 
         <EditText
             android:id="@+id/localVaga"
-            android:layout_width="385dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:hint="@string/localVaga"
             android:inputType="text"
-            android:textSize="25sp" />
-    </LinearLayout>
+            android:textSize="25sp"
+            android:layout_below="@id/nomeVaga"/>
 
         <EditText
             android:id="@+id/descricaoVaga"
-            android:layout_width="385dp"
-            android:layout_height="180dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="start"
             android:hint="@string/descricaoVaga"
             android:inputType="text"
             android:textSize="25sp"
-            android:scrollbarTrackVertical="@color/colorBlack"/>
+            android:scrollHorizontally="true"
+            android:scrollbarTrackVertical="@color/colorBlack"
+            android:layout_below="@id/localVaga"/>
 
     <Button
         android:id="@+id/btnCadastrar"
@@ -63,6 +55,10 @@
         android:onClick="cadastrarVaga"
         android:text="CADASTRAR"
         android:textSize="22sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="22dp" />
 
-</LinearLayout>
+</RelativeLayout>
