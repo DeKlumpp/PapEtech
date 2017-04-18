@@ -19,7 +19,7 @@ public class CadastroActivity extends AppCompatActivity{
         Context context = this;
         Toast toast = Toast.makeText(context, "Cadastrado com Sucesso", Toast.LENGTH_LONG);
         toast.show();
-       startActivity(new Intent(this, LoginActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
 
 };
 }

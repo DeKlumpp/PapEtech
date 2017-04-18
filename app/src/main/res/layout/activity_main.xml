@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/colorWhite">
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/imagem"
@@ -13,20 +13,20 @@
         android:src="@drawable/evagas2" />
 
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/limit"
         android:layout_width="match_parent"
         android:layout_height="70dp">
 
         <EditText
             android:id="@+id/pesquisa"
-            android:layout_width="280dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorWhite"
-            android:inputType="text"
-            android:scrollHorizontally="true"
-            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="@dimen/activity_horizontal_margin"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_toLeftOf="@+id/imageView2"
+            android:layout_toStartOf="@+id/imageView2"
+            android:hint="@string/pesquisa"
             android:textColor="@color/colorBlack"
             android:textSize="40sp" />
 
@@ -34,16 +34,17 @@
             android:id="@+id/imageView2"
             android:layout_width="86dp"
             android:layout_height="55dp"
-            android:layout_marginTop="6dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:onClick="anterior"
             android:src="@drawable/blue_btnsearch" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <!--ListView para leitura das vagas no banco de  dados-->
     <ListView
         android:id="@+id/lista"
         android:layout_width="wrap_content"
-        android:layout_height="441dp">
-    </ListView>
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

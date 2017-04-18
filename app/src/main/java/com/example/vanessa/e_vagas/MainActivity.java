@@ -67,6 +67,11 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaVagas);
         lista.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+
+    }
+
+    public void abrirVaga(View v){
+        startActivity(new Intent(this, DescVagaActivity.class));
     }
 
 

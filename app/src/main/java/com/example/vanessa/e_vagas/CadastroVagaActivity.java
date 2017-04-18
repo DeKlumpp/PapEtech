@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -30,7 +31,20 @@ public class CadastroVagaActivity extends AppCompatActivity {
     }
 
     public void cadastrarVaga(View view) {
+        VagaBD db = new VagaBD(this);
+        Vaga vaga = new Vaga();
 
+        vaga.setNome(((EditText) findViewById(R.id.nomeVaga)).getText().toString());
+        vaga.setDesc(((EditText) findViewById(R.id.descricaoVaga)).getText().toString());
+        vaga.setLocal(((EditText) findViewById(R.id.localVaga)).getText().toString());
+        vaga.setAnuncio(new Date());
+
+        Toast toast = Toast.makeText(this,"Informe o nome, descrição e local da vaga.",Toast.LENGTH_SHORT);
+
+        if (vaga.getNome().toString().trim().isEmpty() || vaga.getDesc().toString().trim().isEmpty() ||
+            vaga.getLocal().toString().trim().isEmpty())
+        toast.show();
+        else{
         //manda a vaga pra outra tela
         Intent intent = new Intent(this,MainActivity.class);
         intent.putExtra("nome", ((EditText) findViewById(R.id.nomeVaga)).getText().toString());
@@ -38,15 +52,9 @@ public class CadastroVagaActivity extends AppCompatActivity {
         intent.putExtra("local", ((EditText) findViewById(R.id.localVaga)).getText().toString());
         setResult(Activity.RESULT_OK,intent);
         finish();
-
         //salva a vaga no banco
-        VagaBD db = new VagaBD(this);
-        Vaga vaga = new Vaga();
-        vaga.setNome(((EditText) findViewById(R.id.nomeVaga)).getText().toString());
-        vaga.setDesc(((EditText) findViewById(R.id.descricaoVaga)).getText().toString());
-        vaga.setLocal(((EditText) findViewById(R.id.localVaga)).getText().toString());
-        vaga.setAnuncio(new Date());
-        db.salvarVaga(vaga);
+         db.salvarVaga(vaga);
         startActivity(intent);
+        }
     }
 }

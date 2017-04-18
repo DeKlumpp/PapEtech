@@ -42,9 +42,8 @@ public class LoginActivity extends AppCompatActivity {
 //        this.output.setText(sb.toString());
 //    }
 //
-    public void abrir(View v){
-        startActivity(new Intent(this, CadastroActivity.class));
-    }
+    public void abrir(View v){startActivity(new Intent(this, CadastroActivity.class));}
+
     public void abrirMain(View v){
         startActivity(new Intent(this, MainActivity.class));
     }

@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/colorWhite"
+android:orientation="vertical"
+android:weightSum="1">
+
+<ImageView
+    android:id="@+id/imagem"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginTop="8dp"
+    android:src="@drawable/evagas2"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
+
+
+<EditText
+    android:id="@+id/loginText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/login"
+    android:inputType="text"
+    android:textSize="20sp"
+    android:textStyle="bold"
+    android:layout_below="@+id/imagem"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_marginTop="37dp" />
+
+
+<EditText
+    android:id="@+id/senhaText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/senha"
+    android:inputType="textPassword"
+    android:textSize="20sp"
+    android:textStyle="bold"
+    android:layout_below="@+id/loginText"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_marginTop="21dp" />
+
+<TextView
+    android:id="@+id/cadastroText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center"
+    android:onClick="abrir"
+    android:text="@string/chamaCadastro"
+    android:textSize="7pt"
+    android:textStyle="bold"
+    android:layout_below="@+id/senhaText"
+    android:layout_centerHorizontal="true" />
+
+<ImageView
+    android:id="@+id/imagem2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:src="@drawable/exemplo"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_below="@+id/cadastroText"
+    android:layout_above="@+id/button" />
+
+<Button
+    android:id="@+id/button"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:background="@color/colorAzulClaro"
+    android:onClick="abrirMain"
+    android:text="@string/entrar"
+    android:textAlignment="center"
+    android:textSize="22dp"
+    android:textStyle="bold"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_marginBottom="15dp" />
+</RelativeLayout>

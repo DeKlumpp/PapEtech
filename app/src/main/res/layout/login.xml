@@ -1,15 +1,16 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
-    android:orientation="vertical"
-    android:weightSum="1">
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/imagem"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginTop="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:src="@drawable/evagas2" />
 
 
@@ -17,6 +18,10 @@
         android:id="@+id/loginText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imagem"
+        android:layout_marginTop="26dp"
         android:hint="@string/login"
         android:inputType="text"
         android:textSize="20sp"
@@ -30,37 +35,49 @@
         android:hint="@string/senha"
         android:inputType="textPassword"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_below="@+id/loginText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/cadastroText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/senhaText"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
         android:gravity="center"
         android:onClick="abrir"
         android:text="@string/chamaCadastro"
-        android:textSize="15dp"
+        android:textSize="26dp"
         android:textStyle="bold" />
+
 
     <ImageView
         android:id="@+id/imagem2"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_weight="0.44"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_above="@+id/button"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
         android:src="@drawable/exemplo" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+
         android:background="@color/colorAzulClaro"
         android:onClick="abrirMain"
         android:text="@string/entrar"
         android:textAlignment="center"
         android:textSize="22dp"
         android:textStyle="bold"
-        android:translationY="@android:dimen/notification_large_icon_height"/>
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>
