@@ -20,6 +20,7 @@ public class CadastroActivity extends AppCompatActivity{
         Toast toast = Toast.makeText(context, "Cadastrado com Sucesso", Toast.LENGTH_LONG);
         toast.show();
         startActivity(new Intent(this, LoginActivity.class));
+        finish();
 
 };
 }

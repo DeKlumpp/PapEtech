@@ -62,6 +62,37 @@ public class VagaBD extends SQLiteOpenHelper {
         return lista;
     }
 
+    public List<Vaga> consultaFiltro(String filtro) {
+        List<Vaga> lista = new ArrayList();
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        try {
+            Cursor cursor = db.rawQuery("SELECT _id, nome, desc, local, anuncio " +
+                                        "  FROM Vaga " +
+                                        " where nome like '%" + filtro + "%'", null);
+
+            cursor.moveToFirst();
+
+            for (int i = 0; i < cursor.getCount(); i++) {
+                Vaga vaga = new Vaga();
+                vaga.setIdVaga(cursor.getLong(0));
+                vaga.setNome(cursor.getString(1));
+                vaga.setDesc(cursor.getString(2));
+                vaga.setLocal(cursor.getString(3));
+                vaga.setAnuncio(df.parse(cursor.getString(4)));
+                lista.add(vaga);
+                cursor.moveToNext();
+            }
+            cursor.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            db.close();
+        }
+        return lista;
+    }
+
     public Vaga salvarVaga(Vaga vaga) {
         SQLiteDatabase db = getWritableDatabase();
         try {

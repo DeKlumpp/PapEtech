@@ -36,7 +36,7 @@
             android:layout_height="55dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:onClick="anterior"
+            android:onClick="pesquisaFiltro"
             android:src="@drawable/blue_btnsearch" />
 
     </RelativeLayout>

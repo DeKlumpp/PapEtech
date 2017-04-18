@@ -23,7 +23,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
     }
-//
+
+    //
 //        this.output = (TextView) this.findViewById(R.id.out_text);
 //
 //        this.dh = new DataHelper(this);
@@ -42,10 +43,14 @@ public class LoginActivity extends AppCompatActivity {
 //        this.output.setText(sb.toString());
 //    }
 //
-    public void abrir(View v){startActivity(new Intent(this, CadastroActivity.class));}
+    public void abrir(View v) {
+        startActivity(new Intent(this, CadastroActivity.class));
+        finish();
+    }
 
-    public void abrirMain(View v){
+    public void abrirMain(View v) {
         startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 
 }

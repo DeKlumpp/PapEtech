@@ -1,160 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="30dp"
-    android:background="@color/colorWhite"
-    android:orientation="vertical">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    <ImageView
-        android:id="@+id/imagem"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:src="@drawable/evagas2" />
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="30dp"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/vagaTitulo"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="Descrição da vaga"
-        android:textColor="@color/colorBlack"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        <ImageView
+            android:id="@+id/imagem"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/evagas2" />
 
-        android:layout_below="@id/imagem"/>
+        <TextView
+            android:id="@+id/vagaTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@id/imagem"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Descrição da vaga"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
 
-    <TextView
-        android:id="@+id/empresa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="left"
-        android:text="Empresa:"
-        android:textColor="@color/colorBlack"
-        android:textSize="20sp"
-        android:textStyle="bold"
+            android:textStyle="bold" />
 
-        android:layout_below="@+id/vagaTitulo"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginStart="22dp" />
+        <TextView
+            android:id="@+id/empresa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/vagaTitulo"
+            android:layout_marginLeft="22dp"
+            android:layout_marginStart="22dp"
 
-    <TextView
-        android:id="@+id/empresaText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="TW Tecnologia"
-        android:textColor="@color/colorBlack"
-        android:textSize="20sp"
-        android:layout_alignBaseline="@+id/empresa"
-        android:layout_alignBottom="@+id/empresa"
-        android:layout_toRightOf="@+id/empresa"
-        android:layout_toEndOf="@+id/empresa" />
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:text="Empresa:"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-
-    <TextView
-        android:id="@+id/vaga"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Vaga:"
-        android:textColor="@color/colorBlack"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_below="@+id/empresa"
-        android:layout_alignLeft="@+id/empresa"
-        android:layout_alignStart="@+id/empresa" />
-
-    <TextView
-        android:id="@+id/vagaText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Helpdesk"
-        android:textColor="@color/colorBlack"
-        android:textSize="20sp"
+        <TextView
+            android:id="@+id/empresaText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/empresa"
+            android:layout_alignBottom="@+id/empresa"
+            android:layout_toEndOf="@+id/empresa"
+            android:layout_toRightOf="@+id/empresa"
+            android:gravity="center"
+            android:text="TW Tecnologia"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
 
 
-        android:layout_alignBaseline="@+id/vaga"
-        android:layout_alignBottom="@+id/vaga"
-        android:layout_toRightOf="@+id/vaga"
-        android:layout_toEndOf="@+id/vaga" />
+        <TextView
+            android:id="@+id/vaga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/empresa"
+            android:layout_alignStart="@+id/empresa"
+            android:layout_below="@+id/empresa"
+            android:gravity="center"
+            android:text="Vaga:"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/local"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Local:"
-        android:textColor="@color/colorBlack"
-        android:textSize="20sp"
-        android:textStyle="bold"
-
-        android:layout_below="@+id/vaga"
-        android:layout_alignLeft="@id/vaga"
-        android:layout_alignStart="@id/vaga" />
-
-    <TextView
-        android:id="@+id/salarioText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Avenida Paulista, 1354 - SP"
-        android:textColor="@color/colorBlack"
-        android:textSize="20sp"
-        android:layout_alignBaseline="@+id/local"
-        android:layout_alignBottom="@+id/local"
-        android:layout_toRightOf="@+id/vaga"
-        android:layout_toEndOf="@+id/vaga" />
+        <TextView
+            android:id="@+id/vagaText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/vaga"
+            android:layout_alignBottom="@+id/vaga"
+            android:layout_toEndOf="@+id/vaga"
+            android:layout_toRightOf="@+id/vaga"
 
 
-    <TextView
-        android:id="@+id/descricao"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:gravity="left"
-        android:text="Descrição da vaga:"
-        android:textColor="@color/colorBlack"
-        android:textSize="20sp"
-        android:textStyle="bold"
+            android:gravity="center"
+            android:text="Helpdesk"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
 
-        android:layout_below="@+id/local"
+        <TextView
+            android:id="@+id/local"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/vaga"
+            android:layout_alignStart="@id/vaga"
+            android:layout_below="@+id/vaga"
+            android:gravity="center"
+            android:text="Local:"
 
-        android:layout_marginTop="20dp"
-        android:layout_alignLeft="@+id/local"
-        android:layout_alignStart="@+id/local" />
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-
-    <TextView
-        android:id="@+id/descricaoText"
-        android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:gravity="center"
-        android:text="Irá atuar como suporte técnico da empresa atendendo aos chamados e funcionários, realizando a manutençao dos equipamentos da empresa."
-        android:textColor="@color/colorBlack"
-        android:textSize="20sp"
-        android:layout_below="@+id/descricao"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
-
-
-    <Button
-        android:id="@+id/enviarCurriculo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAzulClaro"
-        android:onClick="enviarEmail"
-        android:text="@string/enviarCurriculo"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="18dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <TextView
+            android:id="@+id/salarioText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/local"
+            android:layout_alignBottom="@+id/local"
+            android:layout_toEndOf="@+id/vaga"
+            android:layout_toRightOf="@+id/vaga"
+            android:gravity="center"
+            android:text="Avenida Paulista, 1354 - SP"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
 
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/descricao"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/local"
+            android:layout_alignStart="@+id/local"
+            android:layout_below="@+id/local"
+            android:layout_marginTop="20dp"
+            android:gravity="left"
+
+            android:text="Descrição da vaga:"
+
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/descricaoText"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/descricao"
+            android:gravity="center"
+            android:text="Irá atuar como suporte técnico da empresa atendendo aos chamados e funcionários, realizando a manutençao dos equipamentos da empresa."
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
+
+
+        <Button
+            android:id="@+id/enviarCurriculo"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="18dp"
+            android:background="@color/colorAzulClaro"
+            android:onClick="enviarEmail"
+            android:text="@string/enviarCurriculo"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+</ScrollView>

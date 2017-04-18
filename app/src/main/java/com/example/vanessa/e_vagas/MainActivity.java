@@ -33,7 +33,7 @@ import classe.Vaga;
 public class MainActivity extends AppCompatActivity {
 
     private List<String> listaVagas = new ArrayList(); //lista de vagas da tela
-    private List<Vaga> listaTela = new ArrayList();
+    private List<Vaga> listaObj = new ArrayList();
 
     private ArrayAdapter<String> adapter;
 
@@ -55,23 +55,30 @@ public class MainActivity extends AppCompatActivity {
 
         db = new VagaBD(this);
         //consulta todas as vagas automaticamente quando entra na tela
-        listaTela = db.consultarVagas();
+        listaObj = db.consultarVagas();
 
         // seta/adiciona a vaga na lista
-        for (Vaga v : listaTela) {
-            listaVagas.add(v.getNome() + " - " + df.format(v.getAnuncio()) +
-                            " " + hf.format((v.getAnuncio())));
-        }
-
-        final ListView lista = (ListView) findViewById(R.id.lista);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaVagas);
-        lista.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        atualizaLista();
 
     }
 
-    public void abrirVaga(View v){
+    public void abrirVaga(View v) {
         startActivity(new Intent(this, DescVagaActivity.class));
+        finish();
+    }
+
+    public void pesquisaFiltro(View view) {
+
+        EditText txtFiltro = (EditText) findViewById(R.id.pesquisa);
+
+        listaObj = db.consultaFiltro(txtFiltro.getText().toString());
+
+        if (listaObj.isEmpty() == true)
+            listaVagas.clear();
+
+        else {
+            atualizaLista();
+        }
     }
 
 
@@ -85,13 +92,26 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getBaseContext(), CadastroVagaActivity.class);
         startActivityForResult(intent, 2);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if(id == R.id.cadastrovaga) novo(item);
+        if (id == R.id.cadastrovaga) novo(item);
         return super.onOptionsItemSelected(item);
     }
 
+    public void atualizaLista() {
+        listaVagas.clear();
+        for (Vaga v : listaObj) {
+            listaVagas.add(v.getNome() + " - " + df.format(v.getAnuncio()) +
+                    " " + hf.format((v.getAnuncio())));
+        }
+
+        final ListView lista = (ListView) findViewById(R.id.lista);
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaVagas);
+        lista.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
 }
 
 

@@ -22,5 +22,6 @@ public class DescVagaActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(this, "Enviado com Sucesso para o E-mail: "+email, Toast.LENGTH_LONG);
         toast.show();
         startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 }
