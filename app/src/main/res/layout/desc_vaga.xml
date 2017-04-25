@@ -56,7 +56,7 @@
             android:layout_toEndOf="@+id/empresa"
             android:layout_toRightOf="@+id/empresa"
             android:gravity="center"
-            android:text="TW Tecnologia"
+            android:text=""
             android:textColor="@color/colorBlack"
             android:textSize="20sp" />
 
@@ -69,6 +69,7 @@
             android:layout_alignStart="@+id/empresa"
             android:layout_below="@+id/empresa"
             android:gravity="center"
+            android:layout_marginTop="10dp"
             android:text="Vaga:"
             android:textColor="@color/colorBlack"
             android:textSize="20sp"
@@ -85,7 +86,7 @@
 
 
             android:gravity="center"
-            android:text="Helpdesk"
+            android:text=""
             android:textColor="@color/colorBlack"
             android:textSize="20sp" />
 
@@ -96,6 +97,7 @@
             android:layout_alignLeft="@id/vaga"
             android:layout_alignStart="@id/vaga"
             android:layout_below="@+id/vaga"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="Local:"
 
@@ -104,7 +106,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/salarioText"
+            android:id="@+id/localText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/local"
@@ -112,7 +114,7 @@
             android:layout_toEndOf="@+id/vaga"
             android:layout_toRightOf="@+id/vaga"
             android:gravity="center"
-            android:text="Avenida Paulista, 1354 - SP"
+            android:text=""
             android:textColor="@color/colorBlack"
             android:textSize="20sp" />
 
@@ -142,7 +144,7 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/descricao"
             android:gravity="center"
-            android:text="Irá atuar como suporte técnico da empresa atendendo aos chamados e funcionários, realizando a manutençao dos equipamentos da empresa."
+            android:text=""
             android:textColor="@color/colorBlack"
             android:textSize="20sp" />
 
@@ -154,7 +156,6 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="18dp"
             android:background="@color/colorAzulClaro"
             android:onClick="enviarEmail"
             android:text="@string/enviarCurriculo"

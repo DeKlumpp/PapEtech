@@ -101,6 +101,7 @@ public class VagaBD extends SQLiteOpenHelper {
             values.put("desc", vaga.getDesc());
             values.put("local", vaga.getLocal());
             values.put("anuncio", df.format(vaga.getAnuncio()));
+            //values.put("id_empresa", empresa.getId());        pega o id do objeto empresa e insere no banco
 
             if (vaga.getIdVaga() == null) {
                 long id = db.insert("Vaga", null, values);

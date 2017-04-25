@@ -54,17 +54,40 @@ public class MainActivity extends AppCompatActivity {
         hf = android.text.format.DateFormat.getTimeFormat(getApplicationContext());
 
         db = new VagaBD(this);
+
         //consulta todas as vagas automaticamente quando entra na tela
         listaObj = db.consultarVagas();
 
-        // seta/adiciona a vaga na lista
+        //Cria a lista na tela
+        final ListView lista = (ListView) findViewById(R.id.lista);
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaVagas);
+        lista.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+
+        //Traz os itens do banco
         atualizaLista();
+
+
+        //implementar clique da vaga que apresenta os dados da vaga na outra tela
+//        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                listaObj.get(position);
+//                apresentarVaga(position);
+//
+//            }
+//        });
 
     }
 
-    public void abrirVaga(View v) {
-        startActivity(new Intent(this, DescVagaActivity.class));
-        finish();
+    public void apresentarVaga(final int index) {
+
+        //lê do banco onde irá trazer  tabVaga.nome, tabVaga.local, tabVaga.desc e tabEmpresa.empresa
+//
+//        Intent intent = new Intent(this, DescVagaActivity.class);
+//        setResult(Activity.RESULT_OK, intent);
+//        finish();
+//        startActivity(intent);
     }
 
     public void pesquisaFiltro(View view) {
@@ -106,11 +129,6 @@ public class MainActivity extends AppCompatActivity {
             listaVagas.add(v.getNome() + " - " + df.format(v.getAnuncio()) +
                     " " + hf.format((v.getAnuncio())));
         }
-
-        final ListView lista = (ListView) findViewById(R.id.lista);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaVagas);
-        lista.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
     }
 }
 
