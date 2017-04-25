@@ -1,31 +1,19 @@
 package com.example.vanessa.e_vagas;
 
-import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.ListViewCompat;
-import android.text.Editable;
-import android.text.InputType;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 import banco.VagaBD;
 import classe.Vaga;
@@ -36,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Vaga> listaObj = new ArrayList();
 
     private ArrayAdapter<String> adapter;
+    LoginActivity l = new LoginActivity();
 
     private DateFormat df = null;
     private DateFormat hf = null;
@@ -67,17 +56,6 @@ public class MainActivity extends AppCompatActivity {
         //Traz os itens do banco
         atualizaLista();
 
-
-        //implementar clique da vaga que apresenta os dados da vaga na outra tela
-//        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                listaObj.get(position);
-//                apresentarVaga(position);
-//
-//            }
-//        });
-
     }
 
     public void apresentarVaga(final int index) {
@@ -89,6 +67,18 @@ public class MainActivity extends AppCompatActivity {
 //        finish();
 //        startActivity(intent);
     }
+
+
+
+    //implementar clique da vaga que apresenta os dados da vaga na outra tela
+//        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                listaObj.get(position);
+//                apresentarVaga(position);
+//
+//            }
+//        });
 
     public void pesquisaFiltro(View view) {
 

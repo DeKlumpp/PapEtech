@@ -7,15 +7,16 @@ public class Usuario {
     private Integer id;
     private String usuario;
     private String senha;
+    private String tipo;
     /**
      * @param id
      * @param usuario
      * @param senha
      */
-    public Usuario(Integer id, String usuario, String senha) {
-	this.id = id;
+    public Usuario(String usuario, String senha, String tipo) {
 	this.usuario = usuario;
 	this.senha = senha;
+    this.tipo = tipo;
     }
     /**
      * @return the id
@@ -55,5 +56,16 @@ public class Usuario {
      */
     public void setUsuario(String usuario) {
 	this.usuario = usuario;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+    /**
+     * @param tipo
+     *            the usuario to set
+     */
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }
