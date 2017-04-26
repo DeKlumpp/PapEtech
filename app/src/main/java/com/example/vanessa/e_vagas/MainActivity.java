@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Vaga> listaObj = new ArrayList();
 
     private ArrayAdapter<String> adapter;
-    LoginActivity l = new LoginActivity();
+    LoginActivity login = new LoginActivity();
 
     private DateFormat df = null;
     private DateFormat hf = null;
@@ -88,10 +88,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (listaObj.isEmpty() == true)
             listaVagas.clear();
-
-        else {
+        else
             atualizaLista();
-        }
+
     }
 
 

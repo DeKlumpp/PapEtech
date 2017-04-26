@@ -18,8 +18,9 @@ public class LoginActivity extends AppCompatActivity {
     private TextView output;
     private DataHelper dh;
     EditText editLogin;
-    Usuario u;
+    Usuario usuario;
     VagaBD v;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //aqui estou fazendo um teste pra abrir o menu de add vagas para empresas e esconder para usuário comuns
         //editLogin pega o que for digitado no Usuario do login
-        editLogin = (EditText) findViewById(R.id.loginText);
-        u = new Usuario("teste","teste","us");
+//        editLogin = (EditText) findViewById(R.id.loginText);
     }
 
     //
@@ -51,31 +51,42 @@ public class LoginActivity extends AppCompatActivity {
 //    }
 //
 
-    MainActivity m = new MainActivity();
+    public void abrirMain(View view) {
 
-    public void abrir(View v){startActivity(new Intent(this, CadastroActivity.class));}
+        usuario = new Usuario("teste","teste","us");
 
-    public void abrirMain(View v){
-        //O botão do login chama esse método para verificar se vai aparecer o menu ou não(ainda n está fucnionando)
-        //coloquei dois tipos de usuário US= usuario , e = Empresa.
-        if(editLogin.getText().toString().equals(u.getUsuario().toString())){
-            if(u.getTipo().toString() == "e") {
+        if(usuario.getTipo().toString() == "us") {
                 statusMenu = true;
                 startActivity(new Intent(this, MainActivity.class));
             }
-        }
-        if(editLogin.getText().toString().equals(u.getUsuario().toString())){
-            if(u.getTipo().toString() == "us") {
-                statusMenu = true;
-                startActivity(new Intent(this, MainActivity.class));
-            }
-        }
 
-        else{
-            Toast toast = Toast.makeText(this, "Erro no Login", Toast.LENGTH_LONG);
-            toast.show();
-        }
+        Intent intent = new Intent(this, MainActivity.class);
+        finish();
+        startActivity(intent);
     }
+
+//
+//    public void abrirMain(View v){
+//        //O botão do login chama esse método para verificar se vai aparecer o menu ou não(ainda n está fucnionando)
+//        //coloquei dois tipos de usuário US= usuario , e = Empresa.
+//        if(editLogin.getText().toString().equals(u.getUsuario().toString())){
+//            if(u.getTipo().toString() == "e") {
+//                statusMenu = true;
+//                startActivity(new Intent(this, MainActivity.class));
+//            }
+//        }
+//        if(editLogin.getText().toString().equals(u.getUsuario().toString())){
+//            if(u.getTipo().toString() == "us") {
+//                statusMenu = true;
+//                startActivity(new Intent(this, MainActivity.class));
+//            }
+//        }
+//
+//        else{
+//            Toast toast = Toast.makeText(this, "Erro no Login", Toast.LENGTH_LONG);
+//            toast.show();
+//        }
+//    }
 
 }
 
