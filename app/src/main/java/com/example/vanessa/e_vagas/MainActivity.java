@@ -1,5 +1,6 @@
 package com.example.vanessa.e_vagas;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -13,9 +14,11 @@ import android.widget.ListView;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import banco.VagaBD;
+import classe.Usuario;
 import classe.Vaga;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private Vaga vaga = null; //objeto que transita as informações
 
     private VagaBD db; //operações do banco da vaga
+    Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,11 +97,24 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    protected void onActivitResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (Activity.RESULT_OK == resultCode) {
+            usuario.setTipo(data.getStringExtra("status"));
+        }
+    }
 
+    // ele cria primeiro o menu e depois o result
+    //precisa primeiro usar o result e depois o oncreate
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_cadastrovaga, menu);
-        return true;
+
+        if(usuario.getTipo() == "us") {
+            getMenuInflater().inflate(R.menu.menu_cadastrovaga, menu);
+            return true;
+        }
+        else
+            return false;
     }
 
     private void novo(MenuItem item) {

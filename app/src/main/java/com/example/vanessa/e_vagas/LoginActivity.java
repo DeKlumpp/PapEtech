@@ -1,5 +1,6 @@
 package com.example.vanessa.e_vagas;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,13 +26,25 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-
-        //aqui estou fazendo um teste pra abrir o menu de add vagas para empresas e esconder para usuário comuns
-        //editLogin pega o que for digitado no Usuario do login
-//        editLogin = (EditText) findViewById(R.id.loginText);
+        usuario = new Usuario("teste","teste","us");
     }
 
-    //
+    public void abrirMain(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("status",usuario.getTipo());
+        setResult(Activity.RESULT_OK,intent);
+        finish();
+        startActivity(intent);
+    }
+}
+
+
+//aqui estou fazendo um teste pra abrir o menu de add vagas para empresas e esconder para usuário comuns
+//editLogin pega o que for digitado no Usuario do login
+//        editLogin = (EditText) findViewById(R.id.loginText);
+
+
+//
 //        this.output = (TextView) this.findViewById(R.id.out_text);
 //
 //        this.dh = new DataHelper(this);
@@ -51,19 +64,6 @@ public class LoginActivity extends AppCompatActivity {
 //    }
 //
 
-    public void abrirMain(View view) {
-
-        usuario = new Usuario("teste","teste","us");
-
-        if(usuario.getTipo().toString() == "us") {
-                statusMenu = true;
-                startActivity(new Intent(this, MainActivity.class));
-            }
-
-        Intent intent = new Intent(this, MainActivity.class);
-        finish();
-        startActivity(intent);
-    }
 
 //
 //    public void abrirMain(View v){
@@ -88,7 +88,6 @@ public class LoginActivity extends AppCompatActivity {
 //        }
 //    }
 
-}
 
 
 
