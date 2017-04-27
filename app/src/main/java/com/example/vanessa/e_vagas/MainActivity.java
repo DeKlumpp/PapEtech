@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
     Usuario usuario;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
         setContentView(R.layout.activity_main);
 
         df = android.text.format.DateFormat.getDateFormat(getApplicationContext());
@@ -57,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
         lista.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
+        bundle = getIntent().getExtras();
+        String tipo = bundle.getString("status").toString();
+
+        usuario = new Usuario("teste", "teste", tipo);
+
         //Traz os itens do banco
         atualizaLista();
 
@@ -71,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
 //        finish();
 //        startActivity(intent);
     }
-
 
 
     //implementar clique da vaga que apresenta os dados da vaga na outra tela
@@ -97,24 +101,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    protected void onActivitResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (Activity.RESULT_OK == resultCode) {
-            usuario.setTipo(data.getStringExtra("status"));
-        }
-    }
-
-    // ele cria primeiro o menu e depois o result
-    //precisa primeiro usar o result e depois o oncreate
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        if(usuario.getTipo() == "us") {
+        //ao invés de us, deve se usar o tipo empresa
+        if (usuario.getTipo().equals("emp")){
+            //linha que exibe o menu
             getMenuInflater().inflate(R.menu.menu_cadastrovaga, menu);
-            return true;
         }
-        else
-            return false;
+        return true;
     }
 
     private void novo(MenuItem item) {

@@ -26,8 +26,12 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-        usuario = new Usuario("teste","teste","us");
+        //deve-se setar os valores com uma consulta do banco,
+        // pois ela identifica o usuário PJ com PF
+        usuario = new Usuario("teste","teste","emp");
     }
+
+    public void abrir(View view){ startActivity(new Intent(this,CadastroActivity.class)); }
 
     public void abrirMain(View view) {
         Intent intent = new Intent(this, MainActivity.class);
