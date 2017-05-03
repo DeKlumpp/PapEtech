@@ -5,9 +5,9 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label=""
+        android:label="E-Vagas"
         android:supportsRtl="true"
-        >
+        android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,23 +16,19 @@
         </activity>
         <activity
             android:name=".CadastroVagaActivity"
-            android:label="CadastroVaga">
-        </activity>
+            android:label="CadastroVaga"></activity>
         <activity
             android:name=".CadastroActivity"
-            android:label="Cadastro">
-        </activity>
+            android:label="Cadastro"></activity>
         <activity
-        android:name=".MainActivity"
-        android:label="Main">
-        </activity>
+            android:name=".MainActivity"
+            android:label="Main"></activity>
         <activity
             android:name=".DescVagaActivity"
-            android:label="Desc">
-        </activity>
+            android:label="Desc"></activity>
         <!--<activity-->
-            <!--android:name=".LoginActivity"-->
-            <!--android:label="Login">-->
+        <!--android:name=".LoginActivity"-->
+        <!--android:label="Login">-->
         <!--</activity>-->
     </application>
 
