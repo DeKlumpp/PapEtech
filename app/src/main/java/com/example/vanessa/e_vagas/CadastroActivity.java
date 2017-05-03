@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TabHost;
 import android.widget.Toast;
 
 public class CadastroActivity extends AppCompatActivity{
@@ -12,7 +13,22 @@ public class CadastroActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide(); // tira a barra azul de cima (Teste)
         setContentView(R.layout.cadastro);
+
+        TabHost abas = (TabHost) findViewById(R.id.tabhost);
+        abas.setup();
+
+        TabHost.TabSpec descritor = abas.newTabSpec("aba1");
+        descritor.setContent(R.id.Pessoa_Fisica);
+        descritor.setIndicator(getString(R.string.cadastroPF));
+        abas.addTab(descritor);
+
+        descritor = abas.newTabSpec("aba2");
+        descritor.setContent(R.id.Pessoa_Juridica);
+        descritor.setIndicator(getString(R.string.cadastroPJ));
+        abas.addTab(descritor);
+
     }
 
    public void mensagenExibir(View view){
