@@ -21,178 +21,188 @@
             android:layout_height="match_parent">
 
             <!--Cadastro de pessoa física-->
-
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            <ScrollView
                 android:id="@+id/Pessoa_Fisica"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:background="@android:color/white"
-                android:orientation="vertical"
-                android:scrollbarAlwaysDrawVerticalTrack="true"
-                android:weightSum="1">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/imagemPF"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/evagas2" />
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-                <EditText
-                    android:id="@+id/nomeTextPF"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/imagemPF"
-                    android:hint="@string/nome"
-                    android:inputType="text"
-                    android:textSize="25sp" />
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
+                    android:weightSum="1">
 
-                <EditText
-                    android:id="@+id/sobrenomeTextPF"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/nomeTextPF"
-                    android:hint="@string/sobrenome"
-                    android:inputType="text"
-                    android:textSize="25sp" />
+                    <ImageView
+                        android:id="@+id/imagemPF"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/evagas2" />
 
-                <EditText
-                    android:id="@+id/cpfTextPF"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/sobrenomeTextPF"
-                    android:hint="@string/cpf"
-                    android:inputType="number"
-                    android:textSize="25sp" />
+                    <EditText
+                        android:id="@+id/nomeTextPF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imagemPF"
+                        android:hint="@string/nome"
+                        android:inputType="text"
+                        android:textSize="25sp" />
 
-                <EditText
-                    android:id="@+id/emailTextPF"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/cpfTextPF"
-                    android:hint="@string/email"
-                    android:inputType="textEmailAddress"
-                    android:textSize="25sp" />
+                    <EditText
+                        android:id="@+id/sobrenomeTextPF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/nomeTextPF"
+                        android:hint="@string/sobrenome"
+                        android:inputType="text"
+                        android:textSize="25sp" />
 
-                <EditText
-                    android:id="@+id/senhaTextPF"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/emailTextPF"
-                    android:hint="@string/senha"
-                    android:inputType="textPassword"
-                    android:textSize="25sp" />
+                    <EditText
+                        android:id="@+id/cpfTextPF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/sobrenomeTextPF"
+                        android:hint="@string/cpf"
+                        android:inputType="number"
+                        android:textSize="25sp" />
 
-                <EditText
-                    android:id="@+id/confirmarSenhaTextPF"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/senhaTextPF"
-                    android:hint="@string/confirmarSenha"
-                    android:inputType="textPassword"
-                    android:textSize="25sp" />
+                    <EditText
+                        android:id="@+id/emailTextPF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cpfTextPF"
+                        android:hint="@string/email"
+                        android:inputType="textEmailAddress"
+                        android:textSize="25sp" />
 
-                <Button
-                    android:id="@+id/buttonPF"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/confirmarSenhaTextPF"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="34dp"
-                    android:background="@color/colorAzulClaro"
-                    android:onClick="mensagenExibir"
-                    android:text="@string/cadastrar"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
+                    <EditText
+                        android:id="@+id/senhaTextPF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/emailTextPF"
+                        android:hint="@string/senha"
+                        android:inputType="textPassword"
+                        android:textSize="25sp" />
 
-            </RelativeLayout>
+                    <EditText
+                        android:id="@+id/confirmarSenhaTextPF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/senhaTextPF"
+                        android:hint="@string/confirmarSenha"
+                        android:inputType="textPassword"
+                        android:textSize="25sp" />
+
+                    <Button
+                        android:id="@+id/buttonPF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/confirmarSenhaTextPF"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="34dp"
+                        android:background="@color/colorAzulClaro"
+                        android:onClick="mensagenExibir"
+                        android:text="@string/cadastrar"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+            </ScrollView>
 
             <!--Cadastro de pessoa Jurídica-->
 
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            <ScrollView
                 android:id="@+id/Pessoa_Juridica"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:background="@android:color/white"
-                android:orientation="vertical"
-                android:scrollbarAlwaysDrawVerticalTrack="true"
-                android:weightSum="1">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/imagemPJ"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/evagas2" />
+                <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
+                    android:weightSum="1">
 
-                <EditText
-                    android:id="@+id/nomeTextPJ"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/imagemPJ"
-                    android:hint="@string/nome"
-                    android:inputType="text"
-                    android:textSize="25sp" />
+                    <ImageView
+                        android:id="@+id/imagemPJ"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/evagas2" />
 
-                <EditText
-                    android:id="@+id/sobrenomeTextPJ"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/nomeTextPJ"
-                    android:hint="@string/sobrenome"
-                    android:inputType="text"
-                    android:textSize="25sp" />
+                    <EditText
+                        android:id="@+id/nomeTextPJ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imagemPJ"
+                        android:hint="@string/nome"
+                        android:inputType="text"
+                        android:textSize="25sp" />
 
-                <EditText
-                    android:id="@+id/cpfTextPJ"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/sobrenomeTextPJ"
-                    android:hint="@string/cpf"
-                    android:inputType="number"
-                    android:textSize="25sp" />
+                    <EditText
+                        android:id="@+id/sobrenomeTextPJ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/nomeTextPJ"
+                        android:hint="@string/sobrenome"
+                        android:inputType="text"
+                        android:textSize="25sp" />
 
-                <EditText
-                    android:id="@+id/emailTextPJ"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/cpfTextPJ"
-                    android:hint="@string/email"
-                    android:inputType="textEmailAddress"
-                    android:textSize="25sp" />
+                    <EditText
+                        android:id="@+id/cnpjPJ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/sobrenomeTextPJ"
+                        android:hint="@string/cnpj"
+                        android:inputType="number"
+                        android:textSize="25sp" />
 
-                <EditText
-                    android:id="@+id/senhaTextPJ"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/emailTextPJ"
-                    android:hint="@string/senha"
-                    android:inputType="textPassword"
-                    android:textSize="25sp" />
+                    <EditText
+                        android:id="@+id/emailTextPJ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cnpjPJ"
+                        android:hint="@string/email"
+                        android:inputType="textEmailAddress"
+                        android:textSize="25sp" />
 
-                <EditText
-                    android:id="@+id/confirmarSenhaTextPJ"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/senhaTextPJ"
-                    android:hint="@string/confirmarSenha"
-                    android:inputType="textPassword"
-                    android:textSize="25sp" />
+                    <EditText
+                        android:id="@+id/senhaTextPJ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/emailTextPJ"
+                        android:hint="@string/senha"
+                        android:inputType="textPassword"
+                        android:textSize="25sp" />
 
-                <Button
-                    android:id="@+id/buttonPJ"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/confirmarSenhaTextPJ"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="34dp"
-                    android:background="@color/colorAzulClaro"
-                    android:onClick="mensagenExibir"
-                    android:text="@string/cadastrar"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
+                    <EditText
+                        android:id="@+id/confirmarSenhaTextPJ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/senhaTextPJ"
+                        android:hint="@string/confirmarSenha"
+                        android:inputType="textPassword"
+                        android:textSize="25sp" />
 
-            </RelativeLayout>
+                    <Button
+                        android:id="@+id/buttonPJ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/confirmarSenhaTextPJ"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="34dp"
+                        android:background="@color/colorAzulClaro"
+                        android:onClick="mensagenExibir"
+                        android:text="@string/cadastrar"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+            </ScrollView>
         </FrameLayout>
     </LinearLayout>
 </TabHost>
