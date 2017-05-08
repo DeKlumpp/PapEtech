@@ -5,6 +5,7 @@
     <string name="entrar">Entrar</string>
     <string name="pesquisa">Pesquisar</string>
     <string name="nome">Nome</string>
+    <string name="nomeEmpresa">Empresa</string>
     <string name="sobrenome">Sobrenome</string>
     <string name="email">E-mail</string>
     <string name="confirmarSenha">Confirme a senha</string>

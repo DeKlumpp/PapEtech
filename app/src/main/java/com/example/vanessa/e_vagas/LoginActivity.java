@@ -1,16 +1,18 @@
 package com.example.vanessa.e_vagas;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import banco.DataHelper;
+import banco.EmpresaBD;
 import banco.VagaBD;
 import classe.Usuario;
+import classe.UsuarioEmpresa;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -33,11 +35,21 @@ public class LoginActivity extends AppCompatActivity {
     public void abrir(View view){ startActivity(new Intent(this,CadastroActivity.class)); }
 
     public void abrirMain(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("status",usuario.getTipo());
-        setResult(Activity.RESULT_OK,intent);
-        finish();
-        startActivity(intent);
+
+        UsuarioEmpresa usuarioEmpresa = new UsuarioEmpresa();
+        EmpresaBD bd = new EmpresaBD(this);
+
+        if(bd.consultaEmpresa(R.id.loginText, R.id.senhaText)){
+            Intent intent = new Intent(this, MainActivity.class);
+            //intent.putExtra("status",usuario.getTipo());
+            //setResult(Activity.RESULT_OK,intent);
+            //finish();
+            startActivity(intent);
+        }else
+        {
+            Toast toast = Toast.makeText(this, "Usuario ou senha incorretos", Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 }
 

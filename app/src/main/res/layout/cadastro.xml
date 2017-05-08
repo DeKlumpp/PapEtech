@@ -9,11 +9,21 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/imagem"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/evagas2"
+            android:background="@color/colorWhite"/>
+
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorAzulClaro" />
+            android:background="@color/colorWhite"/>
 
         <FrameLayout
             android:id="@android:id/tabcontent"
@@ -35,21 +45,16 @@
                     android:scrollbarAlwaysDrawVerticalTrack="true"
                     android:weightSum="1">
 
-                    <ImageView
-                        android:id="@+id/imagemPF"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="20dp"
-                        android:src="@drawable/evagas2" />
-
                     <EditText
                         android:id="@+id/nomeTextPF"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/imagemPF"
                         android:hint="@string/nome"
                         android:inputType="text"
-                        android:textSize="25sp" />
+                        android:textSize="25sp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
 
                     <EditText
                         android:id="@+id/sobrenomeTextPF"
@@ -127,36 +132,20 @@
                     android:scrollbarAlwaysDrawVerticalTrack="true"
                     android:weightSum="1">
 
-                    <ImageView
-                        android:id="@+id/imagemPJ"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="20dp"
-                        android:src="@drawable/evagas2" />
-
                     <EditText
                         android:id="@+id/nomeTextPJ"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/imagemPJ"
-                        android:hint="@string/nome"
+                        android:hint="@string/nomeEmpresa"
                         android:inputType="text"
                         android:textSize="25sp" />
 
-                    <EditText
-                        android:id="@+id/sobrenomeTextPJ"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/nomeTextPJ"
-                        android:hint="@string/sobrenome"
-                        android:inputType="text"
-                        android:textSize="25sp" />
 
                     <EditText
                         android:id="@+id/cnpjPJ"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/sobrenomeTextPJ"
+                        android:layout_below="@id/nomeTextPJ"
                         android:hint="@string/cnpj"
                         android:inputType="number"
                         android:textSize="25sp" />
