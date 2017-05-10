@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private Vaga vaga = null; //objeto que transita as informações
 
     private VagaBD db; //operações do banco da vaga
-    Usuario usuario;
+    Usuario usuario = new Usuario();
 
     @Override
     protected void onCreate(Bundle bundle) {
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         bundle = getIntent().getExtras();
         String tipo = bundle.getString("status").toString();
-
+        usuario.setTipo(tipo);
         //usuario = new Usuario("teste", "teste", tipo);
 
         //Traz os itens do banco
@@ -103,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         //ao invés de us, deve se usar o tipo empresa
         if (usuario.getTipo().equals("emp")){
             //linha que exibe o menu
