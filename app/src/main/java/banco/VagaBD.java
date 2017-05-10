@@ -25,7 +25,7 @@ public class VagaBD extends SQLiteOpenHelper {
     }
 
     public VagaBD(Context context) {
-        super(context, "Valet", null, 1);
+        super(context, "Vagas", null, 1);
     }
 
     @Override

@@ -1,69 +1,120 @@
 /**
- * 
+ *
  */
 package classe;
 
 public class Usuario {
-    private Integer id;
-    private String usuario;
+    private Long id;
+    private String nome;
+    private String sobrenome;
+    private String cpf;
+    private String cnpj;
+    private String email;
     private String senha;
     private String tipo;
+
+//    public Usuario(String nome, String sobrenome, String cpf, String cnpj, String email, String senha, String tipo) {
+//    }
+
     /**
      * @param id
-     * @param usuario
+     * @param nome
+     * @param sobrenome
+     * @param cpf
+     * @param cnpj
+     * @param email
      * @param senha
      */
-    public Usuario(String usuario, String senha, String tipo) {
-	this.usuario = usuario;
-	this.senha = senha;
-    this.tipo = tipo;
-    }
+
     /**
      * @return the id
      */
-    public Integer getId() {
-	return id;
+    public Long getId() {
+        return id;
     }
+
     /**
-     * @param id
-     *            the id to set
+     * @param id the id to set
      */
-    public void setId(Integer id) {
-	this.id = id;
+    public void setId(Long id) {
+        this.id = id;
     }
+
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
     /**
      * @return the senha
      */
-    public String getSenha() {
-	return senha;
+
+    public String getEmail() {
+        return email;
     }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
     /**
-     * @param senha
-     *            the senha to set
+     * @param senha the senha to set
      */
     public void setSenha(String senha) {
-	this.senha = senha;
+        this.senha = senha;
     }
+
     /**
      * @return the usuario
      */
     public String getUsuario() {
-	return usuario;
+        return nome;
     }
+
     /**
-     * @param usuario
-     *            the usuario to set
+     * @param nome the usuario to set
      */
-    public void setUsuario(String usuario) {
-	this.usuario = usuario;
+    public void setUsuario(String nome) {
+        this.nome = nome;
     }
 
     public String getTipo() {
         return tipo;
     }
+
     /**
-     * @param tipo
-     *            the usuario to set
+     * @param tipo the usuario to set
      */
     public void setTipo(String tipo) {
         this.tipo = tipo;

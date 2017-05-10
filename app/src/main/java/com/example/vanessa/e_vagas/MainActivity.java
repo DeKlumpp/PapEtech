@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         bundle = getIntent().getExtras();
         String tipo = bundle.getString("status").toString();
 
-        usuario = new Usuario("teste", "teste", tipo);
+        //usuario = new Usuario("teste", "teste", tipo);
 
         //Traz os itens do banco
         atualizaLista();

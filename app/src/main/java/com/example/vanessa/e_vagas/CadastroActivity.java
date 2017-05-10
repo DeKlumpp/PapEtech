@@ -5,13 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TabHost;
 import android.widget.Toast;
 
-import banco.EmpresaBD;
-import classe.UsuarioEmpresa;
+import banco.UsuarioBD;
+import classe.Usuario;
 
-public class CadastroActivity extends AppCompatActivity{
+public class CadastroActivity extends AppCompatActivity {
+    UsuarioBD userBD = new UsuarioBD(this);
+    Usuario usuario = new Usuario();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,33 +34,39 @@ public class CadastroActivity extends AppCompatActivity{
         descritor.setContent(R.id.Pessoa_Juridica);
         descritor.setIndicator(getString(R.string.cadastroPJ));
         abas.addTab(descritor);
-
     }
 
-   public void mensagenExibir(View view){
+    public void cadastrarPF(View view) {
 
-       UsuarioEmpresa usuarioEmpresa = new UsuarioEmpresa();
-       usuarioEmpresa.setEmpresa(String.valueOf(R.id.nomeTextPJ));
-       usuarioEmpresa.setCnpj(String.valueOf(R.id.cnpjPJ));
-       usuarioEmpresa.setEmail(String.valueOf(R.id.emailTextPJ));
-       usuarioEmpresa.setSenha(String.valueOf(R.id.senhaTextPJ));
-       EmpresaBD empresa = new EmpresaBD(this);
+        usuario.setUsuario(((EditText) findViewById(R.id.nomeTextPJ)).getText().toString());
+        usuario.setSobrenome(((EditText) findViewById(R.id.sobrenomeTextPF)).getText().toString());
+        usuario.setCpf(((EditText) findViewById(R.id.cpfTextPF)).getText().toString());
+        usuario.setEmail(((EditText) findViewById(R.id.emailTextPF)).getText().toString());
+        usuario.setSenha(((EditText) findViewById(R.id.senhaTextPF)).getText().toString());
 
-       empresa.CadastrarEmpresa(usuarioEmpresa);
+        userBD.CadastrarUsuario(usuario);
 
-       if(
-                usuarioEmpresa.getEmpresa().equals(String.valueOf(R.id.nomeTextPJ)) &&
-                usuarioEmpresa.getCnpj().equals(String.valueOf(R.id.cnpjPJ)) &&
-                usuarioEmpresa.getEmail().equals(String.valueOf(R.id.emailTextPJ)) &&
-                usuarioEmpresa.getSenha().equals(String.valueOf(R.id.senhaTextPJ))) {
+        mensagemLogin();
+    }
 
-           Context context = this;
-           Toast toast = Toast.makeText(context, "Cadastrado com Sucesso", Toast.LENGTH_LONG);
-           toast.show();
-           startActivity(new Intent(this, LoginActivity.class));
-           finish();
-       }
+    public void cadastrarPJ(View view) {
 
-}
+        usuario.setNome(((EditText) findViewById(R.id.nomeTextPJ)).getText().toString());
+        usuario.setCnpj(((EditText) findViewById(R.id.cnpjPJ)).getText().toString());
+        usuario.setEmail(((EditText) findViewById(R.id.emailTextPJ)).getText().toString());
+        usuario.setSenha(((EditText) findViewById(R.id.senhaTextPJ)).getText().toString());
+
+        userBD.CadastrarEmpresa(usuario);
+        mensagemLogin();
+    }
+
+    private void mensagemLogin(){
+        Context context = this;
+        Toast toast = Toast.makeText(context, "Cadastrado com Sucesso", Toast.LENGTH_LONG);
+        toast.show();
+        startActivity(new Intent(this, LoginActivity.class));
+        finish();
+    }
+
 }
 

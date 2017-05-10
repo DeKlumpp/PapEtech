@@ -1,5 +1,6 @@
 package com.example.vanessa.e_vagas;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import banco.DataHelper;
-import banco.EmpresaBD;
+import banco.UsuarioBD;
 import banco.VagaBD;
 import classe.Usuario;
-import classe.UsuarioEmpresa;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -20,33 +20,39 @@ public class LoginActivity extends AppCompatActivity {
     private TextView output;
     private DataHelper dh;
     EditText editLogin;
-    Usuario usuario;
+//    Usuario usuario;
     VagaBD v;
+    Usuario usuario = new Usuario();
+    UsuarioBD bd = new UsuarioBD(this);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
         //deve-se setar os valores com uma consulta do banco,
         // pois ela identifica o usuário PJ com PF
-        usuario = new Usuario("teste","teste","emp");
+//        usuario = new Usuario("teste", "teste", "emp","as","as","as","as");
+        usuario.setTipo("emp");
     }
 
-    public void abrir(View view){ startActivity(new Intent(this,CadastroActivity.class)); }
+    public void abrir(View view) {
+        startActivity(new Intent(this, CadastroActivity.class));
+    }
 
     public void abrirMain(View view) {
 
-        UsuarioEmpresa usuarioEmpresa = new UsuarioEmpresa();
-        EmpresaBD bd = new EmpresaBD(this);
+        EditText txtLogin = (EditText) findViewById(R.id.loginText);
+        EditText txtSenha = (EditText) findViewById(R.id.senhaText);
 
-        if(bd.consultaEmpresa(R.id.loginText, R.id.senhaText)){
+        //colocar um if pra ver se retorna o user correto
+        if (bd.consultaLogin(txtLogin.getText().toString(), txtSenha.getText().toString()) == true) {
             Intent intent = new Intent(this, MainActivity.class);
-            //intent.putExtra("status",usuario.getTipo());
-            //setResult(Activity.RESULT_OK,intent);
-            //finish();
+            intent.putExtra("status", usuario.getTipo());
+            setResult(Activity.RESULT_OK, intent);
+            finish();
             startActivity(intent);
-        }else
-        {
+        } else {
             Toast toast = Toast.makeText(this, "Usuario ou senha incorretos", Toast.LENGTH_LONG);
             toast.show();
         }
