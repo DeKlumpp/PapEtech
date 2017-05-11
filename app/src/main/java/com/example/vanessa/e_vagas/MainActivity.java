@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private AlertDialog dialog;
     private Vaga vaga = null; //objeto que transita as informações
 
-    private VagaBD db; //operações do banco da vaga
+    private VagaBD db = new VagaBD(this); //operações do banco da vaga
     Usuario usuario = new Usuario();
 
     @Override
@@ -43,27 +43,60 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(bundle);
         setContentView(R.layout.activity_main);
 
-        df = android.text.format.DateFormat.getDateFormat(getApplicationContext());
-        hf = android.text.format.DateFormat.getTimeFormat(getApplicationContext());
-
-        db = new VagaBD(this);
-
-        //consulta todas as vagas automaticamente quando entra na tela
-        listaObj = db.consultarVagas();
-
         //Cria a lista na tela
         final ListView lista = (ListView) findViewById(R.id.lista);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaVagas);
         lista.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-
+        //traz o tipo de usuário com o resultado do cursor
         bundle = getIntent().getExtras();
-        String tipo = bundle.getString("status").toString();
-        usuario.setTipo(tipo);
-
-        //Traz os itens do banco
+        if (bundle != null) {
+            String tipo = bundle.getString("status").toString();
+            usuario.setTipo(tipo);
+        }
+        listaObj = db.consultarVagas();
         atualizaLista();
+    }
 
+    public void pesquisaFiltro(View view) {
+        EditText txtFiltro = (EditText) findViewById(R.id.pesquisa);
+        listaObj = db.consultaFiltro(txtFiltro.getText().toString());
+
+        if (listaObj.isEmpty() == true)
+            listaVagas.clear();
+        else
+            atualizaLista();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if (usuario.getTipo().equals("emp")) {
+            getMenuInflater().inflate(R.menu.menu_cadastrovaga, menu);   // linha que exibe o menu
+        }
+        return true;
+    }
+
+    private void novo(MenuItem item) {
+        Intent intent = new Intent(getBaseContext(), CadastroVagaActivity.class);
+        intent.putExtra("status", usuario.getTipo());
+        startActivityForResult(intent, 2);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.cadastrovaga) novo(item);
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void atualizaLista() {
+        df = android.text.format.DateFormat.getDateFormat(getApplicationContext());
+        hf = android.text.format.DateFormat.getTimeFormat(getApplicationContext());
+        listaVagas.clear();
+        for (Vaga v : listaObj) {
+            listaVagas.add(v.getNome() + " - " + df.format(v.getAnuncio()) +
+                    " " + hf.format((v.getAnuncio())));
+        }
     }
 
     public void apresentarVaga(final int index) {
@@ -86,48 +119,6 @@ public class MainActivity extends AppCompatActivity {
 //
 //            }
 //        });
-
-    public void pesquisaFiltro(View view) {
-
-        EditText txtFiltro = (EditText) findViewById(R.id.pesquisa);
-
-        listaObj = db.consultaFiltro(txtFiltro.getText().toString());
-
-        if (listaObj.isEmpty() == true)
-            listaVagas.clear();
-        else
-            atualizaLista();
-
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        //ao invés de us, deve se usar o tipo empresa
-        if (usuario.getTipo().equals("emp")){
-            getMenuInflater().inflate(R.menu.menu_cadastrovaga, menu);   // linha que exibe o menu
-        }
-        return true;
-    }
-
-    private void novo(MenuItem item) {
-        Intent intent = new Intent(getBaseContext(), CadastroVagaActivity.class);
-        startActivityForResult(intent, 2);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.cadastrovaga) novo(item);
-        return super.onOptionsItemSelected(item);
-    }
-
-    public void atualizaLista() {
-        listaVagas.clear();
-        for (Vaga v : listaObj) {
-            listaVagas.add(v.getNome() + " - " + df.format(v.getAnuncio()) +
-                    " " + hf.format((v.getAnuncio())));
-        }
-    }
 }
 
 

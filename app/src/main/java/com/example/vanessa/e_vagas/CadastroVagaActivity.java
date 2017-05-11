@@ -14,20 +14,26 @@ import java.text.DateFormat;
 import java.util.Date;
 
 import banco.VagaBD;
+import classe.Usuario;
 import classe.Vaga;
 
 public class CadastroVagaActivity extends AppCompatActivity {
     private DateFormat df = null;
     private DateFormat hf = null;
+    Usuario usuario = new Usuario();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        bundle = getIntent().getExtras();
+        if (bundle != null) {
+            String tipo = bundle.getString("status").toString();
+            usuario.setTipo(tipo);
+        }
         setContentView(R.layout.cadastro_vaga);
 
         df = android.text.format.DateFormat.getDateFormat(getApplicationContext());
         hf = android.text.format.DateFormat.getTimeFormat(getApplicationContext());
-
     }
 
     public void cadastrarVaga(View view) {
@@ -39,22 +45,18 @@ public class CadastroVagaActivity extends AppCompatActivity {
         vaga.setLocal(((EditText) findViewById(R.id.localVaga)).getText().toString());
         vaga.setAnuncio(new Date());
 
-        Toast toast = Toast.makeText(this,"Informe o nome, descrição e local da vaga.",Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(this, "Informe o nome, descrição e local da vaga.", Toast.LENGTH_SHORT);
 
         if (vaga.getNome().toString().trim().isEmpty() || vaga.getDesc().toString().trim().isEmpty() ||
-            vaga.getLocal().toString().trim().isEmpty())
-        toast.show();
-        else{
-        //manda a vaga pra outra tela
-        Intent intent = new Intent(this,MainActivity.class);
-        intent.putExtra("nome", ((EditText) findViewById(R.id.nomeVaga)).getText().toString());
-        intent.putExtra("desc", ((EditText) findViewById(R.id.descricaoVaga)).getText().toString());
-        intent.putExtra("local", ((EditText) findViewById(R.id.localVaga)).getText().toString());
-        setResult(Activity.RESULT_OK,intent);
-        finish();
-        //salva a vaga no banco
-         db.salvarVaga(vaga);
-        startActivity(intent);
+                vaga.getLocal().toString().trim().isEmpty())
+            toast.show();
+        else {
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra("status",usuario.getTipo());
+            //salva a vaga no banco
+            db.salvarVaga(vaga);
+            finish();
+            startActivity(intent);
         }
     }
 }
