@@ -9,9 +9,18 @@ import android.widget.Toast;
 public class DescVagaActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        bundle = getIntent().getExtras();
+        String idVaga = String.valueOf(bundle.getString("idVaga"));
+        apresentarVaga(idVaga);
         setContentView(R.layout.desc_vaga);
+        //faz uma consulta no banco com o id/filtro e apresenta nos campos
+    }
+
+    private void apresentarVaga(String idVaga) {
+        //pesquisa no cursor, coloca nos findviewById e já eram
+
     }
 
     public void voltarVaga(View view) {

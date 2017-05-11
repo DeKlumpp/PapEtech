@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -43,19 +44,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(bundle);
         setContentView(R.layout.activity_main);
 
+        listaObj = db.consultarVagas();
         //Cria a lista na tela
         final ListView lista = (ListView) findViewById(R.id.lista);
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listaVagas);
         lista.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+
         //traz o tipo de usuário com o resultado do cursor
         bundle = getIntent().getExtras();
         if (bundle != null) {
             String tipo = bundle.getString("status").toString();
             usuario.setTipo(tipo);
         }
-        listaObj = db.consultarVagas();
         atualizaLista();
+
+        //implementar clique da vaga que apresenta os dados da vaga na outra tela
+        final Intent intent = new Intent(this,DescVagaActivity.class);
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick (AdapterView < ? > parent, View view,int position, long id){
+                vaga = listaObj.get(position);
+                String idVaga = vaga.getIdVaga().toString();
+                intent.putExtra("idVaga",idVaga);
+                startActivity(intent);
+            }
+        });
     }
 
     public void pesquisaFiltro(View view) {
@@ -99,26 +113,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void apresentarVaga(final int index) {
+//    public void apresentarVaga(final int index) {
+
+        //se ele insere o id automagicamente - é só apresentar ele na tela, ou deixar invisível,
+        // daí vc puxa e faz a consulta no banco com esse id pra poder apresentar na outra tela.
+
 
         //lê do banco onde irá trazer  tabVaga.nome, tabVaga.local, tabVaga.desc e tabEmpresa.empresa
-//
+
 //        Intent intent = new Intent(this, DescVagaActivity.class);
 //        setResult(Activity.RESULT_OK, intent);
 //        finish();
 //        startActivity(intent);
-    }
-
-
-    //implementar clique da vaga que apresenta os dados da vaga na outra tela
-//        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                listaObj.get(position);
-//                apresentarVaga(position);
-//
-//            }
-//        });
+//    }
 }
 
 
