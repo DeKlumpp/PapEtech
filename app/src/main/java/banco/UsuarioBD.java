@@ -31,9 +31,12 @@ public class UsuarioBD extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE Usuario (_id integer primary key autoincrement, " +
-                "nome text, sobrenome text, cpf text, cnpj text, email text, senha text);");
-
+        try {
+            db.execSQL("CREATE TABLE Usuario (_id integer primary key autoincrement, " +
+                    "nome text, sobrenome text, cpf text, cnpj text, email text, senha text, tipo_user text);");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public Usuario CadastrarUsuario(Usuario usuario) {
@@ -46,12 +49,9 @@ public class UsuarioBD extends SQLiteOpenHelper {
             values.put("cnpj", (byte[]) null);
             values.put("email", usuario.getEmail());
             values.put("senha", usuario.getSenha());
-            //values.put("id_empresa", empresa.getId());        pega o id do objeto empresa e insere no banco
+            values.put("tipo_user", usuario.getTipo());
+            db.insert("Usuario", null, values);
 
-            if (usuario.getId() == null) {
-                long id = db.insert("Usuario", null, values);
-                usuario.setId(id);
-            }
         } finally {
             db.close();
         }
@@ -68,49 +68,49 @@ public class UsuarioBD extends SQLiteOpenHelper {
             values.put("cnpj", usuario.getCnpj());
             values.put("email", usuario.getEmail());
             values.put("senha", usuario.getSenha());
+            values.put("tipo_user", usuario.getTipo());
+            db.insert("Usuario", null, values);
 
-            //values.put("id_empresa", empresa.getId());        pega o id do objeto empresa e insere no banco
-
-            if (usuario.getId() == null) {
-                long id = db.insert("Usuario", null, values);
-                usuario.setId(id);
-            }
         } finally {
             db.close();
         }
         return usuario;
     }
 
-    public boolean consultaLogin(String email, String senha) {
-        List<Usuario> login = new ArrayList();
-        Usuario user = new Usuario();
+    public List<Usuario> consultaLogin(String email, String senha) {
         SQLiteDatabase db = getReadableDatabase();
-        boolean logado;
-
+        List<Usuario> login = new ArrayList();
+        boolean logado = false;
         try {
-            Cursor cursor = db.rawQuery("SELECT email, senha " + "  FROM Usuario " +
+            Cursor cursor = db.rawQuery("SELECT email, senha, tipo_user " + "  FROM Usuario " +
                     " where email like '" + email + "' and senha like '" + senha + "'", null);
-
             cursor.moveToFirst();
 
             for (int i = 0; i < cursor.getCount(); i++) {
+                Usuario user = new Usuario();
                 user.setEmail(cursor.getString(0));
                 user.setSenha(cursor.getString(1));
+                user.setTipo(cursor.getString(2));
                 login.add(user);
                 cursor.moveToNext();
             }
             cursor.close();
+
+            if (!login.isEmpty())
+                logado = true;
+            else
+                logado = false;
+
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             db.close();
         }
-        if (user.getEmail().equals(email) && user.getSenha().equals(senha))
-             logado = true;
+        if (logado == true)
+            return login;
         else
-            logado = false;
-
-        return logado;
+            return null;
     }
 }
 

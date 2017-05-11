@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
         bundle = getIntent().getExtras();
         String tipo = bundle.getString("status").toString();
         usuario.setTipo(tipo);
-        //usuario = new Usuario("teste", "teste", tipo);
 
         //Traz os itens do banco
         atualizaLista();
@@ -105,8 +104,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         //ao invés de us, deve se usar o tipo empresa
         if (usuario.getTipo().equals("emp")){
-            //linha que exibe o menu
-            getMenuInflater().inflate(R.menu.menu_cadastrovaga, menu);
+            getMenuInflater().inflate(R.menu.menu_cadastrovaga, menu);   // linha que exibe o menu
         }
         return true;
     }

@@ -38,11 +38,12 @@ public class CadastroActivity extends AppCompatActivity {
 
     public void cadastrarPF(View view) {
 
-        usuario.setUsuario(((EditText) findViewById(R.id.nomeTextPJ)).getText().toString());
+        usuario.setUsuario(((EditText) findViewById(R.id.nomeTextPF)).getText().toString());
         usuario.setSobrenome(((EditText) findViewById(R.id.sobrenomeTextPF)).getText().toString());
         usuario.setCpf(((EditText) findViewById(R.id.cpfTextPF)).getText().toString());
         usuario.setEmail(((EditText) findViewById(R.id.emailTextPF)).getText().toString());
         usuario.setSenha(((EditText) findViewById(R.id.senhaTextPF)).getText().toString());
+        usuario.setTipo("user");
 
         userBD.CadastrarUsuario(usuario);
 
@@ -55,6 +56,7 @@ public class CadastroActivity extends AppCompatActivity {
         usuario.setCnpj(((EditText) findViewById(R.id.cnpjPJ)).getText().toString());
         usuario.setEmail(((EditText) findViewById(R.id.emailTextPJ)).getText().toString());
         usuario.setSenha(((EditText) findViewById(R.id.senhaTextPJ)).getText().toString());
+        usuario.setTipo("emp");
 
         userBD.CadastrarEmpresa(usuario);
         mensagemLogin();

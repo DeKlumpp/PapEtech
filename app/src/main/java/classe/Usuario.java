@@ -24,6 +24,7 @@ public class Usuario {
      * @param cnpj
      * @param email
      * @param senha
+     * @param tipo
      */
 
     /**
