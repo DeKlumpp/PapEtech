@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void pesquisaFiltro(View view) {
         EditText txtFiltro = (EditText) findViewById(R.id.pesquisa);
-        listaObj = db.consultaFiltro(txtFiltro.getText().toString());
+        listaObj = db.consultaFiltro(txtFiltro.getText().toString(), null);
 
         if (listaObj.isEmpty() == true)
             listaVagas.clear();

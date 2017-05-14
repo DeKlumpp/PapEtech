@@ -23,6 +23,6 @@
     <string name="cadastrarvaga">Cadastrar vaga</string>
     <string name ="cpf">Cpf</string>
     <string name ="cnpj">Cnpj</string>
-    <string name="cadastroPF">Usuário</string>
-    <string name="cadastroPJ">Empresa</string>
+    <string name="cadastroPF">PESSOAL</string>
+    <string name="cadastroPJ">CORPORATIVO</string>
 </resources>
