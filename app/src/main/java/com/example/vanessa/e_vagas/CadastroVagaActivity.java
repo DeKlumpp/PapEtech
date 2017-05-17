@@ -1,11 +1,8 @@
 package com.example.vanessa.e_vagas;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -60,3 +57,42 @@ public class CadastroVagaActivity extends AppCompatActivity {
         }
     }
 }
+
+    /* https://www.raywenderlich.com/109843/common-design-patterns-for-android
+facade
+     patter builder
+
+    * new AlertDialog.Builder(this)
+    .setTitle("Metaphorical Sandwich Dialog")
+    .setMessage("Metaphorical message to please use the spicy mustard.")
+    .setNegativeButton("No thanks", new DialogInterface.OnClickListener() {
+      @Override public void onClick(DialogInterface dialogInterface, int i) {
+        // "No thanks" button was clicked
+      }
+    })
+    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+      @Override public void onClick(DialogInterface dialogInterface, int i) {
+        // "OK" button was clicked
+      }
+    })
+    .show();
+
+
+    webservice
+    new AlertDialog.Builder(this)
+    .setTitle("Metaphorical Sandwich Dialog")
+    .setMessage("Metaphorical message to please use the spicy mustard.")
+    .setNegativeButton("No thanks", new DialogInterface.OnClickListener() {
+      @Override public void onClick(DialogInterface dialogInterface, int i) {
+        // "No thanks" button was clicked
+      }
+    })
+    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+      @Override public void onClick(DialogInterface dialogInterface, int i) {
+        // "OK" button was clicked
+      }
+    })
+    .show();
+
+
+    * */
