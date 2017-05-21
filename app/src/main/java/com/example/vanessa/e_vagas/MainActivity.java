@@ -55,19 +55,25 @@ public class MainActivity extends AppCompatActivity {
         bundle = getIntent().getExtras();
         if (bundle != null) {
             String tipo = bundle.getString("status").toString();
+            String curriculo;
+            if (tipo.equals("user")) {
+                curriculo = bundle.getString("cv").toString();
+                usuario.setCv(curriculo);
+            }
             usuario.setTipo(tipo);
         }
         atualizaLista();
 
         //clique da vaga que apresenta os dados da vaga na outra tela
-        final Intent intent = new Intent(this,DescVagaActivity.class);
-        lista.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        final Intent intent = new Intent(this, DescVagaActivity.class);
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick (AdapterView < ? > parent, View view,int position, long id){
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 vaga = listaObj.get(position);
                 String idVaga = vaga.getIdVaga().toString();
-                intent.putExtra("status",usuario.getTipo());
-                intent.putExtra("idVaga",idVaga);
+                intent.putExtra("status", usuario.getTipo());
+                intent.putExtra("idVaga", idVaga);
+                intent.putExtra("cv", usuario.getCv());
                 startActivity(intent);
             }
         });
@@ -116,11 +122,11 @@ public class MainActivity extends AppCompatActivity {
 
 //    public void apresentarVaga(final int index) {
 
-        //se ele insere o id automagicamente - é só apresentar ele na tela, ou deixar invisível,
-        // daí vc puxa e faz a consulta no banco com esse id pra poder apresentar na outra tela.
+    //se ele insere o id automagicamente - é só apresentar ele na tela, ou deixar invisível,
+    // daí vc puxa e faz a consulta no banco com esse id pra poder apresentar na outra tela.
 
 
-        //lê do banco onde irá trazer  tabVaga.nome, tabVaga.local, tabVaga.desc e tabEmpresa.empresa
+    //lê do banco onde irá trazer  tabVaga.nome, tabVaga.local, tabVaga.desc e tabEmpresa.empresa
 
 //        Intent intent = new Intent(this, DescVagaActivity.class);
 //        setResult(Activity.RESULT_OK, intent);

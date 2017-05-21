@@ -54,6 +54,8 @@ public class LoginActivity extends AppCompatActivity {
             if (userList != null) {
                 Intent intent = new Intent(this, MainActivity.class);
                 String tipoUser = userList.get(0).getTipo().toString();
+                String curriculo = userList.get(0).getCv();
+                intent.putExtra("cv",curriculo);
                 intent.putExtra("status", tipoUser);
                 setResult(Activity.RESULT_OK, intent);
                 finish();

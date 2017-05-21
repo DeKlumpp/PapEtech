@@ -2,6 +2,7 @@ package com.example.vanessa.e_vagas;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import java.util.List;
 
 import banco.UsuarioBD;
 import banco.VagaBD;
+import classe.Usuario;
 import classe.Vaga;
 
 public class DescVagaActivity extends AppCompatActivity {
@@ -24,6 +26,7 @@ public class DescVagaActivity extends AppCompatActivity {
     private AlertDialog dialog;
     VagaBD vagaBD = new VagaBD(this);
     Vaga vagaOBJ = new Vaga();
+    Usuario usuario = new Usuario();
     UsuarioBD usuarioBD = new UsuarioBD(this);
 
     @Override
@@ -33,15 +36,22 @@ public class DescVagaActivity extends AppCompatActivity {
 
         String idVaga = String.valueOf(bundle.getString("idVaga"));
         String tipoUser = String.valueOf(bundle.getString("status"));
+        usuario.setTipo(tipoUser);
+        String curriculo = String.valueOf(bundle.getString("cv"));
 
-        if(tipoUser.equals("emp")){
-            Button btnEnviar = (Button)findViewById(R.id.enviarCurriculo);
-            btnEnviar.setVisibility(View.GONE);
-        }
+        if (tipoUser.equals("user"))
+            usuario.setCv(curriculo);
+
+//        if(tipoUser.equals("emp")){
+//            Button btnEnviar = (Button)findViewById(R.id.enviarCurriculo);
+//            btnEnviar.setBackgroundColor(Color.TRANSPARENT);
+//            btnEnviar.setVisibility(View.INVISIBLE);
+//        }
+
         setContentView(R.layout.desc_vaga);
         //faz uma consulta no banco com o id/filtro e apresenta nos camposa
         List<Vaga> vaga = new ArrayList();
-        vaga = vagaBD.consultaFiltro(null,idVaga);
+        vaga = vagaBD.consultaFiltro(null, idVaga);
 
         vagaOBJ = vaga.get(0);
         // o nome da empresa é a consulta no banco com o id q foi logado anteriormente
@@ -76,23 +86,17 @@ public class DescVagaActivity extends AppCompatActivity {
 
     //o dialog chama esse cara
     public void enviarEmail() {
-        /*
-        Consultar o login do usuário, somente se for diferente de emp
-        daí pega somente o currículo no cursor e joga no corpo do email.
-         */
-
-        Log.i("email: ","");
+        Log.i("email: ", "");
 
         String emailEmp = vagaOBJ.getEmail();
         String emailDestino = emailEmp;
         String assunto = "Candidato para a vaga " + vagaOBJ.getNome();
-        String mensagem = "Candidato: ";
+        String mensagem = "Informações sobre o candidato: " + usuario.getCv();
 
         String to = emailDestino;
         String subject = assunto;
         String message = mensagem;
 
-        final Intent telaMain = new Intent(this,DescVagaActivity.class);
         Intent email = new Intent(Intent.ACTION_SEND);
 
         email.putExtra(Intent.EXTRA_EMAIL, new String[]{to});
@@ -108,8 +112,14 @@ public class DescVagaActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-    public void confirmarEnvio(View view){
-        dialog = mostraPoPup();
-        dialog.show();
+
+    public void confirmarEnvio(View view) {
+        if (usuario.getTipo().equals("emp")) {
+            Toast toast = Toast.makeText(this, "Não é possível enviar", Toast.LENGTH_SHORT);
+            toast.show();
+        } else {
+            dialog = mostraPoPup();
+            dialog.show();
+        }
     }
 }
