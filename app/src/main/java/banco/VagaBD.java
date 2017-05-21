@@ -31,7 +31,7 @@ public class VagaBD extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE Vaga (_id integer primary key autoincrement, nome text," +
-                " desc text, local text, anuncio text);");
+                " desc text, local text, anuncio text, email text);");
     }
 
     public List<Vaga> consultarVagas() {
@@ -40,7 +40,7 @@ public class VagaBD extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
 
         try {
-            Cursor cursor = db.rawQuery("SELECT _id, nome, desc, local, anuncio FROM Vaga", null);
+            Cursor cursor = db.rawQuery("SELECT _id, nome, desc, local, anuncio, email FROM Vaga", null);
             cursor.moveToFirst();
 
             for (int i = 0; i < cursor.getCount(); i++) {
@@ -50,6 +50,7 @@ public class VagaBD extends SQLiteOpenHelper {
                 vaga.setDesc(cursor.getString(2));
                 vaga.setLocal(cursor.getString(3));
                 vaga.setAnuncio(df.parse(cursor.getString(4)));
+                vaga.setEmail(cursor.getString(5));
                 lista.add(vaga);
                 cursor.moveToNext();
             }
@@ -69,7 +70,7 @@ public class VagaBD extends SQLiteOpenHelper {
 
         try {
             if (filtro != null) {
-                Cursor cursor = db.rawQuery("SELECT _id, nome, desc, local, anuncio " +
+                Cursor cursor = db.rawQuery("SELECT _id, nome, desc, local, anuncio, email " +
                         "  FROM Vaga " +
                         " where nome like '%" + filtro + "%'", null);
 
@@ -82,12 +83,13 @@ public class VagaBD extends SQLiteOpenHelper {
                     vaga.setDesc(cursor.getString(2));
                     vaga.setLocal(cursor.getString(3));
                     vaga.setAnuncio(df.parse(cursor.getString(4)));
+                    vaga.setEmail(cursor.getString(5));
                     lista.add(vaga);
                     cursor.moveToNext();
                 }
                 cursor.close();
             }else{
-                Cursor cursor = db.rawQuery("SELECT nome, desc, local, anuncio " +
+                Cursor cursor = db.rawQuery("SELECT nome, desc, local, anuncio, email " +
                         "  FROM Vaga " +
                         " where _id = " + id, null);
 
@@ -99,6 +101,7 @@ public class VagaBD extends SQLiteOpenHelper {
                     vaga.setDesc(cursor.getString(1));
                     vaga.setLocal(cursor.getString(2));
                     vaga.setAnuncio(df.parse(cursor.getString(3)));
+                    vaga.setEmail(cursor.getString(4));
                     lista.add(vaga);
                     cursor.moveToNext();
                 }
@@ -120,6 +123,7 @@ public class VagaBD extends SQLiteOpenHelper {
             values.put("desc", vaga.getDesc());
             values.put("local", vaga.getLocal());
             values.put("anuncio", df.format(vaga.getAnuncio()));
+            values.put("email", vaga.getEmail());
             db.insert("Vaga", null, values);
         } finally {
             db.close();

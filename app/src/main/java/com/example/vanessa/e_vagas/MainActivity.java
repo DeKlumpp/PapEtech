@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         }
         atualizaLista();
 
-        //implementar clique da vaga que apresenta os dados da vaga na outra tela
+        //clique da vaga que apresenta os dados da vaga na outra tela
         final Intent intent = new Intent(this,DescVagaActivity.class);
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override

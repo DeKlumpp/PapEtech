@@ -14,51 +14,63 @@
         android:src="@drawable/evagas2" />
 
 
-        <EditText
-            android:id="@+id/nomeVaga"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="@string/nomeVaga"
-            android:inputType="text"
-            android:textSize="25sp"
-            android:layout_below="@id/imagem"/>
+    <EditText
+        android:id="@+id/nomeVaga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imagem"
+        android:layout_marginTop="10dp"
+        android:hint="@string/nomeVaga"
+        android:inputType="text"
+        android:textSize="25sp" />
 
 
-        <EditText
-            android:id="@+id/localVaga"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="@string/localVaga"
-            android:inputType="text"
-            android:textSize="25sp"
-            android:layout_below="@id/nomeVaga"/>
+    <EditText
+        android:id="@+id/localVaga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/nomeVaga"
+        android:hint="@string/localVaga"
+        android:inputType="text"
+        android:textSize="25sp" />
 
-        <EditText
-            android:id="@+id/descricaoVaga"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="start"
-            android:hint="@string/descricaoVaga"
-            android:inputType="text"
-            android:textSize="25sp"
-            android:scrollHorizontally="true"
-            android:scrollbarTrackVertical="@color/colorBlack"
-            android:layout_below="@id/localVaga"/>
+    <EditText
+        android:id="@+id/destinoEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/localVaga"
+        android:hint="@string/destinoEmail"
+        android:inputType="text"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/descricaoVaga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/destinoEmail"
+        android:layout_marginTop="10dp"
+        android:gravity="start"
+        android:hint="@string/descricaoVaga"
+        android:inputType="text"
+        android:scrollHorizontally="true"
+        android:scrollbarTrackVertical="@color/colorBlack"
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/btnCadastrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:background="@color/colorAzulClaro"
         android:onClick="cadastrarVaga"
         android:text="CADASTRAR"
         android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textStyle="bold" />
 
 </RelativeLayout>

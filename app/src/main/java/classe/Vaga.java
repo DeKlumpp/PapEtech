@@ -13,6 +13,7 @@ public class Vaga{
     private String desc;
     private String local;
     private Date anuncio;
+    private String email;
 
     public Long getIdVaga() {
         return idVaga;
@@ -53,4 +54,8 @@ public class Vaga{
     public void setAnuncio(Date anuncio) {
         this.anuncio = anuncio;
     }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) { this.email = email;}
 }
