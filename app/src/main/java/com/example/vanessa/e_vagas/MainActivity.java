@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick (AdapterView < ? > parent, View view,int position, long id){
                 vaga = listaObj.get(position);
                 String idVaga = vaga.getIdVaga().toString();
+                intent.putExtra("status",usuario.getTipo());
                 intent.putExtra("idVaga",idVaga);
                 startActivity(intent);
             }

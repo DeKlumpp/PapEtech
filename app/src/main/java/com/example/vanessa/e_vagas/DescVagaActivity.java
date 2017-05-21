@@ -7,6 +7,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import banco.UsuarioBD;
 import banco.VagaBD;
 import classe.Vaga;
 
@@ -22,12 +24,20 @@ public class DescVagaActivity extends AppCompatActivity {
     private AlertDialog dialog;
     VagaBD vagaBD = new VagaBD(this);
     Vaga vagaOBJ = new Vaga();
+    UsuarioBD usuarioBD = new UsuarioBD(this);
 
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         bundle = getIntent().getExtras();
+
         String idVaga = String.valueOf(bundle.getString("idVaga"));
+        String tipoUser = String.valueOf(bundle.getString("status"));
+
+        if(tipoUser.equals("emp")){
+            Button btnEnviar = (Button)findViewById(R.id.enviarCurriculo);
+            btnEnviar.setVisibility(View.GONE);
+        }
         setContentView(R.layout.desc_vaga);
         //faz uma consulta no banco com o id/filtro e apresenta nos camposa
         List<Vaga> vaga = new ArrayList();
@@ -66,11 +76,16 @@ public class DescVagaActivity extends AppCompatActivity {
 
     //o dialog chama esse cara
     public void enviarEmail() {
+        /*
+        Consultar o login do usuário, somente se for diferente de emp
+        daí pega somente o currículo no cursor e joga no corpo do email.
+         */
+
         Log.i("email: ","");
 
         String emailEmp = vagaOBJ.getEmail();
         String emailDestino = emailEmp;
-        String assunto = "Candidato para a vaga " + vagaOBJ.getAnuncio();
+        String assunto = "Candidato para a vaga " + vagaOBJ.getNome();
         String mensagem = "Candidato: ";
 
         String to = emailDestino;

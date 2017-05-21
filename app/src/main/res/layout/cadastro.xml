@@ -98,11 +98,20 @@
                         android:inputType="textPassword"
                         android:textSize="25sp" />
 
+                    <EditText
+                        android:id="@+id/curriculoText"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_below="@id/confirmarSenhaTextPF"
+                        android:hint="Informe seu Curriculo aqui"
+                        android:inputType="text|textMultiLine"
+                        android:gravity="top"/>
+
                     <LinearLayout
                         android:id="@+id/layoutImgPF"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/confirmarSenhaTextPF"
+                        android:layout_below="@id/curriculoText"
                         android:orientation="horizontal"
                         android:weightSum="1">
 

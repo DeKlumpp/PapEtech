@@ -12,6 +12,7 @@ public class Usuario {
     private String email;
     private String senha;
     private String tipo;
+    private String cv;
 
 //    public Usuario(String nome, String sobrenome, String cpf, String cnpj, String email, String senha, String tipo) {
 //    }
@@ -120,4 +121,13 @@ public class Usuario {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+    public String getCv() {
+        return cv;
+    }
+
+    public void setCv(String cv) {
+        this.cv = cv;
+    }
 }
+

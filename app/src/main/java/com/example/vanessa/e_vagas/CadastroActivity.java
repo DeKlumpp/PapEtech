@@ -43,6 +43,7 @@ public class CadastroActivity extends AppCompatActivity {
         usuario.setCpf(((EditText) findViewById(R.id.cpfTextPF)).getText().toString());
         usuario.setEmail(((EditText) findViewById(R.id.emailTextPF)).getText().toString());
         usuario.setSenha(((EditText) findViewById(R.id.senhaTextPF)).getText().toString());
+        usuario.setCv(((EditText) findViewById(R.id.curriculoText)).getText().toString());
         usuario.setTipo("user");
 
         userBD.CadastrarUsuario(usuario);
