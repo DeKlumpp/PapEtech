@@ -42,12 +42,6 @@ public class DescVagaActivity extends AppCompatActivity {
         if (tipoUser.equals("user"))
             usuario.setCv(curriculo);
 
-//        if(tipoUser.equals("emp")){
-//            Button btnEnviar = (Button)findViewById(R.id.enviarCurriculo);
-//            btnEnviar.setBackgroundColor(Color.TRANSPARENT);
-//            btnEnviar.setVisibility(View.INVISIBLE);
-//        }
-
         setContentView(R.layout.desc_vaga);
         //faz uma consulta no banco com o id/filtro e apresenta nos camposa
         List<Vaga> vaga = new ArrayList();
