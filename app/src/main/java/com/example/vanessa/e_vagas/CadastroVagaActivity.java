@@ -41,11 +41,12 @@ public class CadastroVagaActivity extends AppCompatActivity {
         vaga.setDesc(((EditText) findViewById(R.id.descricaoVaga)).getText().toString());
         vaga.setLocal(((EditText) findViewById(R.id.localVaga)).getText().toString());
         vaga.setAnuncio(new Date());
+        vaga.setEmail(((EditText) findViewById(R.id.destinoEmail)).getText().toString());
 
         Toast toast = Toast.makeText(this, "Informe o nome, descrição e local da vaga.", Toast.LENGTH_SHORT);
 
         if (vaga.getNome().toString().trim().isEmpty() || vaga.getDesc().toString().trim().isEmpty() ||
-                vaga.getLocal().toString().trim().isEmpty())
+                vaga.getLocal().toString().trim().isEmpty() || vaga.getEmail().toString().trim().isEmpty())
             toast.show();
         else {
             Intent intent = new Intent(this, MainActivity.class);

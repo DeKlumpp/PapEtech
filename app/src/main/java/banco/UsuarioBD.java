@@ -33,7 +33,7 @@ public class UsuarioBD extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         try {
             db.execSQL("CREATE TABLE Usuario (_id integer primary key autoincrement, " +
-                    "nome text, sobrenome text, cpf text, cnpj text, email text, senha text, tipo_user text);");
+                    "nome text, sobrenome text, cpf text, cnpj text, email text, senha text, tipo_user text, curriculo text);");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,6 +50,7 @@ public class UsuarioBD extends SQLiteOpenHelper {
             values.put("email", usuario.getEmail());
             values.put("senha", usuario.getSenha());
             values.put("tipo_user", usuario.getTipo());
+            values.put("curriculo", usuario.getCv());
             db.insert("Usuario", null, values);
 
         } finally {
@@ -69,6 +70,7 @@ public class UsuarioBD extends SQLiteOpenHelper {
             values.put("email", usuario.getEmail());
             values.put("senha", usuario.getSenha());
             values.put("tipo_user", usuario.getTipo());
+            values.put("curriculo", (byte[]) null);
             db.insert("Usuario", null, values);
 
         } finally {
@@ -82,7 +84,7 @@ public class UsuarioBD extends SQLiteOpenHelper {
         List<Usuario> login = new ArrayList();
         boolean logado = false;
         try {
-            Cursor cursor = db.rawQuery("SELECT email, senha, tipo_user " + "  FROM Usuario " +
+            Cursor cursor = db.rawQuery("SELECT email, senha, tipo_user, curriculo " + "  FROM Usuario " +
                     " where email like '" + email + "' and senha like '" + senha + "'", null);
             cursor.moveToFirst();
 
@@ -91,6 +93,8 @@ public class UsuarioBD extends SQLiteOpenHelper {
                 user.setEmail(cursor.getString(0));
                 user.setSenha(cursor.getString(1));
                 user.setTipo(cursor.getString(2));
+                if (user.getTipo().equals("user"))
+                    user.setCv(cursor.getString(3));
                 login.add(user);
                 cursor.moveToNext();
             }

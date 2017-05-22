@@ -25,4 +25,9 @@
     <string name ="cnpj">Cnpj</string>
     <string name="cadastroPF">PESSOAL</string>
     <string name="cadastroPJ">CORPORATIVO</string>
+    <string name="sim">SIM</string>
+    <string name="nao">NÃO</string>
+    <string name="confirma">Confirmação</string>
+    <string name="destinoEmail">Email para candidatura</string>
+    <string name="informeCurriculo">Informe seu CV aqui</string>
 </resources>
